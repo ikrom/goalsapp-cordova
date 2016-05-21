@@ -1,0 +1,124 @@
+body{
+	background-color: #E9E9E8;
+	padding: 0;
+	margin: 0;
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+.text-form{
+	padding: 26px; 
+	text-decoration: none;
+	font-family: "Neris-LightItalic";
+	color: black;
+}
+/*==================================
+=            Font Style            =
+==================================*/
+
+@font-face{
+	font-family: "Neris-Black";
+	src: url("../fonts/Neris-Black.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: "Neris-BlackItalic";
+	src: url("../fonts/Neris-BlackItalic.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: "Neris-LightItalic";
+	src: url("../fonts/Neris-LightItalic.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+/*=====  End of Font Style  ======*/
+
+/*=====================================
+=            Splash Style            =
+=====================================*/
+.image_container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.image_container img{
+	position: relative;
+  margin: -50px 0 0 -55px;
+  left: 50%;
+  top: 50%;
+}
+/*=====  End of Splash Style  ======*/
+
+/*===================================
+=            Login Style            =
+===================================*/
+.logo-img{
+	display: block;
+	vertical-align: middle;
+	margin: 50px auto;
+}
+.header-title{
+	width: 100%;
+	height: 60px;
+	padding: 20px 71px;
+	vertical-align: middle;
+	font-size: 20px;
+	font-family: "Neris-Black";
+
+}
+.login-form{
+	width: 100%;
+	height: auto;
+	padding-left: 45px;
+	padding-right: 25px;
+}
+.item-input, .item-input input{
+	background-color: #BDBDBD;
+	color: #3A393B;
+	font-family: "Neris-BlackItalic"
+}
+.item-input{
+	margin-bottom: 5px;
+}
+.list-inset{
+	background: #E6E7E8;
+}
+input[type="text"]{
+	width: 100%;
+}
+input[type="text"]::-webkit-input-placeholder, input[type="text"]:-ms-input-placeholder,input[type="text"]:placeholder-shown  {
+	color:    red;
+	font-style: italic;
+
+}
+input[type="text"]::-moz-placeholder ,input[type="text"]::-moz-placeholder { 
+	color:    red;
+	opacity:  1;
+	font-style: italic;
+}
+input::-webkit-input-placeholder {
+	color:    #8A8A8A;
+	font-family: "Neris-LightItalic"
+}	
+.submit-button{
+	margin:0;
+	padding: 0;
+	background: transparent;
+	position: absolute;
+	right: 25px;
+	margin-top: 30px;
+}
+/*=====  End of Login Style  ======*/

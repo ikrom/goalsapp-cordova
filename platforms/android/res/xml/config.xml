@@ -6,12 +6,12 @@
         <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
-    <name>HelloCordova</name>
+    <name>Goalsapp</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplikasi pencatat keuangan.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="ichrome.fahdi@gmail.com" href="http://wwww.facebook.com/ikromaf">
+        Ikrom dan Reva
     </author>
     <content src="index.html" />
     <access origin="*" />

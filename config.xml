@@ -38,4 +38,5 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="android" spec="~5.1.1" />
+    <preference name="backgroundColor" value="0x00000000" />
 </widget>

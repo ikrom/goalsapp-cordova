@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Goalsapp</name>
+    <description>
+        Aplikasi pencatat keuangan.
+    </description>
+    <author email="ichrome.fahdi@gmail.com" href="http://wwww.facebook.com/ikromaf">
+        Ikrom dan Reva
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="backgroundColor" value="0x00000000" />
+</widget>
