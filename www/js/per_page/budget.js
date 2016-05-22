@@ -50,7 +50,7 @@ function Submit() {
       alert(data.message);
       if(data.status != '300'){
         // window.location.href = "budget.html";
-        window.location.href = "goals.html";
+        window.location.href = "addgoals.html";
       }
       SpinnerPlugin.activityStop();
     }, "json");
