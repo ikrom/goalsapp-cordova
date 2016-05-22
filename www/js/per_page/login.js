@@ -49,7 +49,7 @@ function Submit() {
       'EMAIL' : $('#inputEmail').val(),
       'PASSWORD' : $('#inputPassword').val()
     };
-    // SpinnerPlugin.activityStart("Login...");
+    SpinnerPlugin.activityStart("Login...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       if(data.status == '300'){
         alert(data.message);
@@ -59,10 +59,11 @@ function Submit() {
         localStorage.setItem('AKUN_ID', data.data[0].AKUN_ID);
         localStorage.setItem('USERNAME', data.data[0].USERNAME);
         localStorage.setItem('REKENING', data.data[0].REKENING);
+        localStorage.setItem('FOTO', data.data[0].FOTO);
         // window.location.href = "select_kapal.html";
         alert("go to home page");
       }
-      // SpinnerPlugin.activityStop();
+      SpinnerPlugin.activityStop();
     }, "json");
   }
   else {
