@@ -11,23 +11,24 @@
 
     <script src="js/jquery-2.2.4.min.js"></script>
 
+    <script type="text/javascript" src="js/per_page/login.js"></script>
     <title>Login Page</title>
 </head>
 <body>
 	<div class="header-title text">login</div>
     <img class="logo-img" src="img/logo.png" width="200" height="200">
-    <form  class="login-form">
+    <div class="login-form">
       <div class="list list-inset">
         <label class="item item-input ">
-          <input type="text" placeholder="email" ng-model="loginData.email">
+          <input id="inputEmail" type="text" placeholder="email">
         </label>
         <label class="item item-input">
-          <input type="password" placeholder="password" ng-model="loginData.password">
+          <input id="inputPassword" type="password" placeholder="password">
         </label>
       </div>
       <a href="register.html" class="text-form">register</a>
-      <button class="button  submit-button " type="submit" ng-click="Submit()"><img id="ini" src="img/icon_done.png" width="72" height="72"></button>
-    </form>
+      <button class="button  submit-button " onclick="Submit()"><img id="ini" src="img/icon_done.png" width="72" height="72"></button>
+    </div>
 </body>
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

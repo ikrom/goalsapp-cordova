@@ -10,27 +10,27 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
     <script src="js/jquery-2.2.4.min.js"></script>
-
+    <script type="text/javascript" src="js/per_page/budget.js"></script>
     <title>Budget Page</title>
 </head>
 <body>
 	<div class="header-title text">budgets</div>
   <div class="text text-username">revoreva</div>   
-    <form class="login-form" method="post">
+    <div class="login-form">
       <div class="list list-inset">
         <div class="text-input">wallet</div>
         <label class="item item-input ">
-          <input name="wallet" type="number" placeholder=" 000.000,00" class="custom-input" >
+          Rp. <input id="inputWallet" name="wallet" type="number" placeholder=" 000.000" class="custom-input" >
         </label>
         <div class="text-input">credit</div>
         <label class="item item-input ">
-          <input name="credit" type="number" placeholder=" 000.000,00" class="custom-input" >
+          Rp. <input id="inputCredit" name="credit" type="number" placeholder=" 000.000" class="custom-input" >
         </label>
       </div>
-      <button href="budget.html" class="button  submit-button " type="submit"">
+      <button href="budget.html" class="button  submit-button ">
         <img src="img/icon_done.png">
       </button>
-    </form>
+    </div>
 </body>
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
