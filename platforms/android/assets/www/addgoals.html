@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+
+    <title>Goals Page</title>
+</head>
+<body>
+	<div class="header-title text">goals!</div>
+    <div class="input-img">
+      <div class="row-input">
+        <div class="img-photo">
+          <img src="img/photo.png" alt="" >  
+        </div>
+        <div class="input-option">
+          <div class="input-library">
+            <img src="img/icon_pic.png" width="" height="28">
+          </div>
+          <div class="input-camera">
+            <img ng-click="takePhoto()" src="img/icon_camera.png" width="" height="28">
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="login-form" method="post">
+      <div class="list list-inset">
+        <label class="item item-input ">
+          <input name="name goal" type="text" placeholder="name your goals" class="custom-input" >
+        </label>
+        <label class="item item-input ">
+          <input name="price" type="number" placeholder="price" class="custom-input" >
+        </label>
+        <label class="item item-input">
+          <input name="date goal" type="date" placeholder="date goals"  onfocus="(this.type='date')" class="date-input">
+        </label>
+      </div>
+      <a href="budget.html">
+        <button class="button  submit-button " type="submit">
+          <img src="img/icon_done.png">
+        </button>
+      </a>
+    </form>
+</body>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</html>

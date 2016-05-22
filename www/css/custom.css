@@ -57,6 +57,24 @@ button:hover
 	width: 100%;
 	padding: 20px 71px;
 }
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
+  input[type="date"],
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }
+  ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+    color: transparent;
+}
+.list-inset .item.item-input input.date-input{
+	padding-right: 10px;
+}
 /*==================================
 =            Font Style            =
 ==================================*/
