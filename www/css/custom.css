@@ -34,11 +34,13 @@ button:hover
 	display: table-row;
 }
 .input-img .img-photo{
+	overflow: hidden;
 	width: 70%;
   	display: table-cell;
 }
 .input-img .img-photo img{
 	width: 100%;
+	min-height: 200px;
 	border-radius: 50%;
 	border-color: #FAE903;
 	border-style: solid;
