@@ -2,6 +2,7 @@ body{
 	background-color: #E9E9E8;
 	padding: 0;
 	margin: 0;
+	-webkit-overflow-scrolling: touch;
 }
 textarea:hover, 
 input:hover, 
@@ -17,11 +18,42 @@ button:hover
     -webkit-appearance:none;
 }
 .text-form{
-	padding: 26px; 
+	padding: 0 20px; 
 	text-decoration: none;
 	font-family: "Neris-LightItalic";
 	color: black;
 }
+.input-img{
+	width:100%;
+	padding: 	0 35px 0 55px;
+	display: table;
+}
+.row-input{
+	display: table-row;
+}
+.input-img .img-photo{
+	width: 70%;
+  	display: table-cell;
+}
+.input-img .img-photo img{
+	width: 100%;
+}
+.input-img .input-option{
+	width: 30%;
+  	display: table-cell;
+  	padding-top: 0;
+  	vertical-align: middle;
+}
+.input-library .input-camera{
+	width: 100%;
+	min-height: 50%;
+}
+.input-library img, .input-camera img{
+	display: table-cell;
+	margin: 60% auto;
+	vertical-align: middle;
+}
+
 /*==================================
 =            Font Style            =
 ==================================*/
@@ -119,6 +151,6 @@ input::-webkit-input-placeholder {
 	background: transparent;
 	position: absolute;
 	right: 25px;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 /*=====  End of Login Style  ======*/
