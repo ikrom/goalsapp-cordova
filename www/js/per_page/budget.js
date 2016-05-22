@@ -19,10 +19,9 @@ function changeSubmitButton() {
 }
 
 function refresh() {
-  if(localStorage.getItem('USERNAME') != null){
-    alert(localStorage.getItem('USERNAME') + ' was logged in');
-    //window.location.href = "select_kapal.html";
-    window.location.href = "goals.html";
+  if(localStorage.getItem('USERNAME') == null){
+    alert('You must logged in first');
+    window.location.href = "login.html";
   }
   $('#inputWallet').on('input',function () {
     changeSubmitButton();
