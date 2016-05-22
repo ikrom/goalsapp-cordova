@@ -46,7 +46,7 @@ function refresh() {
 function Submit() {
   if ( checkInput() ) {
     var dataToBeSent = {
-      'TYPE'      : 'add_goals',
+      'TYPE'      : 'add_goal',
       'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
       'NAMA'     : $('#inputNama').val(),
       'HARGA'  : $('#inputHarga').val(),
