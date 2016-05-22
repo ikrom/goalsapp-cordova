@@ -1,5 +1,4 @@
-cordova.define("cordova-plugin-spinner.SpinnerPlugin", function(require, exports, module) {
-"use strict";
+cordova.define("cordova-plugin-spinner.SpinnerPlugin", function(require, exports, module) { "use strict";
 
 var exec = require("cordova/exec");
 

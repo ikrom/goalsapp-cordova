@@ -7,7 +7,7 @@ $( document ).ready( function() {
 } );
 
 function checkInput() {
-  return ($('#inputEmail').val() != "" && $('#inputPassword').val() != "" && $('#inputUsername').val() != "" && $('#smallImage').attr('src') != "img/photo.png");
+  return ($('#inputWallet').val() != "" && $('#inputCredit').val() != "");
 }
 
 function changeSubmitButton() {
@@ -24,22 +24,16 @@ function refresh() {
     //window.location.href = "select_kapal.html";
     alert("go to home page");
   }
-  $('#inputEmail').on('input',function () {
+  $('#inputWallet').on('input',function () {
     changeSubmitButton();
   });
-  $('#inputPassword').on('input',function () {
+  $('#inputCredit').on('input',function () {
     changeSubmitButton();
   });
-  $('#inputUsername').on('input',function () {
+  $('#inputWallet').on('keyup',function () {
     changeSubmitButton();
   });
-  $('#inputEmail').on('keyup',function () {
-    changeSubmitButton();
-  });
-  $('#inputPassword').on('keyup',function () {
-    changeSubmitButton();
-  });
-  $('#inputUsername').on('keyup',function () {
+  $('#inputCredit').on('keyup',function () {
     changeSubmitButton();
   });
 }
@@ -47,25 +41,16 @@ function refresh() {
 function Submit() {
   if ( checkInput() ) {
     var dataToBeSent = {
-      'TYPE'      : 'register',
-      'EMAIL'     : $('#inputEmail').val(),
-      'PASSWORD'  : $('#inputPassword').val(),
-      'FOTO'      : $('#smallImage').attr('src'),
-      'USERNAME'  : $('#inputUsername').val()
+      'TYPE'      : 'budget',
+      'AKUN_ID'     : localStorage.getItem('AKUN_ID'),
+      'REKENING'  : String(Number($('#inputWallet').val()) + Number($('#inputCredit').val()))
     };
-    SpinnerPlugin.activityStart("Register...");
+    SpinnerPlugin.activityStart("Add Budget...");
     $.post(url, dataToBeSent, function(data, textStatus) {
-      if(data.status == '300'){
-        alert(data.message);
-      } else {
-        alert('Welcome ' + data.data[0].USERNAME);
-        localStorage.setItem('EMAIL', data.data[0].EMAIL);
-        localStorage.setItem('AKUN_ID', data.data[0].AKUN_ID);
-        localStorage.setItem('USERNAME', data.data[0].USERNAME);
-        localStorage.setItem('REKENING', data.data[0].REKENING);
-        localStorage.setItem('FOTO', data.data[0].FOTO);
-        $('.text-form').css('font-family','Neris-LightItalic');
-        window.location.href = "budget.html";
+      alert(data.message);
+      if(data.status != '300'){
+        // window.location.href = "budget.html";
+        alert("go to home page");
       }
       SpinnerPlugin.activityStop();
     }, "json");

@@ -255,11 +255,11 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-spinner": "1.0.0",
-    "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-camera": "2.2.0",
     "cordova-plugin-file": "4.2.0",
     "cordova-plugin-media": "2.3.0",
-    "cordova-plugin-media-capture": "1.3.0"
-};
+    "cordova-plugin-media-capture": "1.3.0",
+    "cordova-plugin-compat": "1.0.0"
+}
 // BOTTOM OF METADATA
 });

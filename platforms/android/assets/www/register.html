@@ -62,7 +62,7 @@
            var dataURL = c.toDataURL("image/jpeg");
            return dataURL;
       }
-      
+
       // Called when a photo is successfully retrieved
       //
       function onPhotoURISuccess(imageURI) {
@@ -80,8 +80,8 @@
         // Show the captured photo
         // The in-line CSS rules are used to resize the image
         //
-        // smallImage.src = imageURI;
-        smallImage.src = "data:image/jpeg;base64," + encodeImageUri(imageURI);
+        smallImage.src = imageURI;
+        // smallImage.src = "data:image/jpeg;base64," + encodeImageUri(imageURI);
       }
 
       // A button will call this function
@@ -107,8 +107,11 @@
       function getPhoto(source) {
         // alert('get from file');
         // Retrieve image file location from specified source
-        navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
-          destinationType: destinationType.FILE_URI,
+        // navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        //   destinationType: destinationType.FILE_URI,
+        //   sourceType: source });
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+          destinationType: destinationType.DATA_URL,
           sourceType: source });
         changeSubmitButton();
       }

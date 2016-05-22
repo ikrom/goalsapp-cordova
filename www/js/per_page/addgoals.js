@@ -7,7 +7,7 @@ $( document ).ready( function() {
 } );
 
 function checkInput() {
-  return ($('#inputWallet').val() != "" && $('#inputCredit').val() != "");
+  return ($('#inputNama').val() != "" && $('#inputHarga').val() != "" && $('#inputDate').val() != "" && $('#smallImage').attr('src') != "img/thing.png");
 }
 
 function changeSubmitButton() {
@@ -24,16 +24,22 @@ function refresh() {
     //window.location.href = "select_kapal.html";
     window.location.href = "goals.html";
   }
-  $('#inputWallet').on('input',function () {
+  $('#inputNama').on('input',function () {
     changeSubmitButton();
   });
-  $('#inputCredit').on('input',function () {
+  $('#inputHarga').on('input',function () {
     changeSubmitButton();
   });
-  $('#inputWallet').on('keyup',function () {
+  $('#inputDate').on('input',function () {
     changeSubmitButton();
   });
-  $('#inputCredit').on('keyup',function () {
+  $('#inputNama').on('keyup',function () {
+    changeSubmitButton();
+  });
+  $('#inputHarga').on('keyup',function () {
+    changeSubmitButton();
+  });
+  $('#inputDate').on('keyup',function () {
     changeSubmitButton();
   });
 }
@@ -41,15 +47,17 @@ function refresh() {
 function Submit() {
   if ( checkInput() ) {
     var dataToBeSent = {
-      'TYPE'      : 'budget',
-      'AKUN_ID'     : localStorage.getItem('AKUN_ID'),
-      'REKENING'  : String(Number($('#inputWallet').val()) + Number($('#inputCredit').val()))
+      'TYPE'      : 'add_goals',
+      'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
+      'NAMA'     : $('#inputNama').val(),
+      'HARGA'  : $('#inputHarga').val(),
+      'FOTO'      : $('#smallImage').attr('src'),
+      'DUE_DATE'  : $('#inputDate').val()
     };
-    SpinnerPlugin.activityStart("Add Budget...");
+    SpinnerPlugin.activityStart("Add Goal...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       alert(data.message);
       if(data.status != '300'){
-        // window.location.href = "budget.html";
         window.location.href = "goals.html";
       }
       SpinnerPlugin.activityStop();
