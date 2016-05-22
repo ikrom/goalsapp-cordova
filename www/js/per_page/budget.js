@@ -23,6 +23,7 @@ function refresh() {
     alert('You must logged in first');
     window.location.href = "login.html";
   }
+  $('#username_title').html(localStorage.getItem('USERNAME'));
   $('#inputWallet').on('input',function () {
     changeSubmitButton();
   });
