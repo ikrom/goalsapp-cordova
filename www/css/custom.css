@@ -53,7 +53,10 @@ button:hover
 	margin: 60% auto;
 	vertical-align: middle;
 }
-
+.text{
+	width: 100%;
+	padding: 20px 71px;
+}
 /*==================================
 =            Font Style            =
 ==================================*/
@@ -73,6 +76,12 @@ button:hover
 @font-face{
 	font-family: "Neris-LightItalic";
 	src: url("../fonts/Neris-LightItalic.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: "Neris-ThinItalic";
+	src: url("../fonts/Neris-ThinItalic.otf");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -103,14 +112,10 @@ button:hover
 	margin: 50px auto;
 }
 .header-title{
-	width: 100%;
-	height: 60px;
-	padding: 20px 71px;
-	vertical-align: middle;
 	font-size: 20px;
 	font-family: "Neris-Black";
-
 }
+
 .login-form{
 	width: 100%;
 	height: auto;
@@ -154,3 +159,19 @@ input::-webkit-input-placeholder {
 	margin-top: 20px;
 }
 /*=====  End of Login Style  ======*/
+
+/*====================================
+=            Budget Style            =
+====================================*/
+
+.text-username{
+	font-family: "Neris-ThinItalic";
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.text-input{
+	padding-left: 16px;
+	font-family: "Neris-LightItalic";
+	margin: 20px 0 10px;
+}
+/*=====  End of Budget Style  ======*/

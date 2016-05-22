@@ -12,39 +12,22 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <title>BUdget Page</title>
+    <title>Budget Page</title>
 </head>
 <body>
-	<div class="header-title">budgets</div>
-    <!-- <img class="logo-img" ng-src="img/logo.png" width="200" height="200"> -->
-    <div class="input-img">
-      <div class="row-input">
-        <div class="img-photo">
-          <img src="img/photo.png" alt="" >  
-        </div>
-        <div class="input-option">
-          <div class="input-library">
-            <img src="img/icon_pic.png" width="" height="28">
-          </div>
-          <div class="input-camera">
-            <img ng-click="takePhoto()" src="img/icon_camera.png" width="" height="28">
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="header-title text">budgets</div>
+  <div class="text text-username">revoreva</div>   
     <form class="login-form">
       <div class="list list-inset">
+        <div class="text-input">wallet</div>
         <label class="item item-input ">
-          <input name="username" type="text" placeholder="username" class="custom-input" >
+          Rp.  <input name="wallet" type="number" placeholder=" 000.000,00" class="custom-input" >
         </label>
+        <div class="text-input">credit</div>
         <label class="item item-input ">
-          <input name="email" type="text" placeholder="email" class="custom-input" >
-        </label>
-        <label class="item item-input">
-          <input name="password" type="password" placeholder="password">
+          Rp.  <input name="credit" type="number" placeholder=" 000.000,00" class="custom-input" >
         </label>
       </div>
-      <div class="text-form">registered</div>
       <button href="budget.html" class="button  submit-button " type="submit"">
         <img src="img/icon_done.png">
       </button>
