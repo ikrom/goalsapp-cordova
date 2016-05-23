@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+
+    <title>Transaksi2 Page</title>
+</head>
+<body class="trans">
+  <!-- sidemenu -->
+  <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  
+	<div class="header-title text">transaction</div>
+  <div id="sidebar" style=""></div>
+    <div class="this-tabs">
+      <!-- Radio button and lable for #tab-content1 -->
+      <input type="radio" name="tabs" id="tab1" checked >
+      <label for="tab1">DEBT&LOAN</label>
+      <!-- Radio button and lable for #tab-content2 -->
+      <input type="radio" name="tabs" id="tab2">
+      <label for="tab2">EXPENSE</label>
+      <!-- Radio button and lable for #tab-content3 -->
+      <input type="radio" name="tabs" id="tab3">
+      <label for="tab3">INCOME</label>
+
+      <div id="tab-content1" class="tab-content">
+        <div class="category-trans">
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/i_debt.png"></div>
+            <label class="item item-input trans">Debt</label>
+          </div>  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_loan.png"></div>
+            <label class="item item-input trans">Loan</label>
+          </div>   
+        </div>
+        <img class="save-btn add-transaction trans" src="img/icon_done2.png">
+      </div> <!-- #tab-content1 -->
+
+      <div id="tab-content2" class="tab-content">
+        <div class="category-trans">
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_food.png"></div>
+            <label class="item item-input trans">Food & Beverages</label>
+          </div>  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_bills.png"></div>
+            <label class="item item-input trans">Bills & Utilities</label>
+          </div>   
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_shop.png"></div>
+            <label class="item item-input trans">Shop</label>
+          </div>  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_friend.png"></div>
+            <label class="item item-input trans">Friends</label>
+          </div>   
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_transportation.png"></div>
+            <label class="item item-input trans">Transportation</label>
+          </div>  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_entertaiment.png"></div>
+            <label class="item item-input trans">Entertaiment</label>
+          </div>   
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_others.png"></div>
+            <label class="item item-input trans noitalic">
+              <input name="category" type="text" placeholder="Others" >
+            </label>
+          </div>   
+        </div>
+        <img class="save-btn add-transaction trans" src="img/icon_done2.png">
+      </div> <!-- #tab-content2 -->
+
+      <div id="tab-content3" class="tab-content">
+        <div class="category-trans">  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/i_parent.png"></div>
+            <label class="item item-input trans">Parents</label>
+          </div>  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/i_project.png"></div>
+            <label class="item item-input trans">Project</label>
+          </div>   
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/i_pay.png"></div>
+            <label class="item item-input trans">Pay</label>
+          </div>  
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/i_competition.png"></div>
+            <label class="item item-input trans">Competition</label>
+          </div>   
+          <div class="row no-padding category-item">
+            <div class="trans-img"><img src="img/e_others.png"></div>
+            <label class="item item-input trans noitalic">
+              <input name="category" type="text" placeholder="Others" >
+            </label>
+          </div>   
+        </div>
+        <img class="save-btn add-transaction trans" src="img/icon_done2.png">
+      </div> <!-- #tab-content2 -->
+    </div>
+    
+    
+</body>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        function toggle_sidebar()
+        {
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.left == "-200px")
+            {
+                sidebar.style.left = "0px";
+            }
+            else
+            {
+                sidebar.style.left = "-200px";
+            }
+        }
+    </script>
+</html>

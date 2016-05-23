@@ -44,7 +44,7 @@
       </div> -->
     </div>
     <div class="vertical-text">goals</div>
-     <img class="save-btn" src="img/save_money.png">
+     <a href="#overlay" id="open-overlay"><img class="save-btn" src="img/save_money.png"></a>
 
   </div>
   <!-- <div class="main-content">
@@ -82,6 +82,19 @@
     </div>
 
   </div>
+  <!-- overlays -->
+
+  <div id="overlay">
+    <img class="save-btn" src="img/save_money2.png" onclick="nabungTetap()">
+    <div class="goal-text save-goaltext">daily coin</div>
+    <div class="goal-text text-addgoal" id="showNabungConstant">Rp.30.000,00</div>
+    <div class="goal-text save-goaltext">optional coin</div>
+    <label class="item item-input">
+      <input name="date goal" type="number" placeholder="" id="inputNabung">
+    </label>
+    <img class="save-btn optional-btn" src="img/save_money.png" onclick="nabungCustom()">
+  </div>
+  <div id="mask" onclick="document.location='#';"></div> <!-- the only javascript -->
 </body>
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/slick.min.js"></script>

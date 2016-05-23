@@ -39,11 +39,18 @@ button:hover
 	display: table-row;
 }
 .input-img .img-photo{
+	overflow: hidden;
 	width: 70%;
   	display: table-cell;
 }
 .input-img .img-photo img{
 	width: 100%;
+	min-height: 200px;
+	max-height: 250px;
+	border-radius: 50%;
+	border-color: #FAE903;
+	border-style: solid;
+	border-width: 5px;
 }
 .input-img .input-option{
 	width: 30%;
@@ -309,7 +316,7 @@ img.save-btn{
 	font-size: 24px;
 }
 img.add-transaction{
-	top:80%;
+	top:84%;
 }
 .today-transaction{
 	padding-right: 0;
@@ -361,265 +368,3 @@ span.category{
 	padding-bottom: 20px;
 }
 /*=====  End of Transaction Style  ======*/
-
-/*==========================================
-=            AddGoalsHome Style            =
-==========================================*/
-.username-goals:before{
-
-}
-.username-goals{
-	text-align: right;
-	padding-right: 35px;
-	font-family: "Neris-LightItalic";
-	font-size: 12px;
-}
-.progress{
-	margin-top: 10px;
-}
-.goal-name.progress{
-	padding-right: 30px;
-}
-.goal-text.text-addgoal{
-	font-family: "Neris-Black";
-	margin-top: 25px;
-	font-size: 14px;
-}
-.text-addgoal.borderbottom{
-	margin-top: 20px;
-	margin-left: 55px;
-	padding-bottom: 10px;
-	padding-left: 0;
-	border-bottom: 3px solid #d2d2d2;
-}
-.goal-text.daily-saving.text-addgoal{
-	background: #f8d720;
-	padding: 5px;
-	margin-left: 55px;
-	margin-right: 35px;
-	margin-top: 10px;
-}
-.home-button{
-	margin-top: -20px;
-}
-/*=====  End of AddGoalsHome Style  ======*/
-
-/*====================================
-=            Nabung Style            =
-====================================*/
-.save-goaltext{
-	margin-top: 10px;
-	margin-bottom: -10px;
-}
-#overlay{ /* we set all of the properties for are overlay */
-    
-    width:100%;
-    margin:0 auto;
-    padding: 65px 20px 20px;
-    color:#e2e2e0;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:1000;
-    display:none;
-}
-#overlay img.save-btn{
-	top: 33%;
-}
-#overlay img.save-btn.optional-btn{
-	top: 75%;
-}
-#overlay .goal-text.text-addgoal{
-	margin-top: 18px;
-	margin-bottom: 50px;
-}
-#overlay label{
-	margin-top: 30px;
-	margin-left: 35px;
-	margin-right:55px;
-	background: #3b3b3c;
-}
-#overlay label.item{
-	border: none;
-}
-#overlay label.item.item-input input{
-	color:#e2e2e0;
-	font-family: "Neris-Black";
-	line-height: 18px;
-	height: 28px;
-}
-#overlay label input{
-	background: #3b3b3c;
-}
-#mask{ /* create are mask */
-    position:fixed;
-    top:0;
-    left:0;
-    background:rgba(0,0,0,0.8);
-    z-index:500;
-    width:100%;
-    height:100%;
-    display:none;
-}
-/* use :target to look for a link to the overlay then we find are mask */
-#overlay:target, #overlay:target + #mask{
-    display:block;
-    opacity:1;
-}
-
-/*=====  End of Nabung Style  ======*/
-
-/*======================================
-=            AddTrans Style            =
-======================================*/
-body.trans{
-	background: #fbfbfc;
-}
-body.trans .header-title{
-	background: #e2e2e0;
-}
-.trans-content.trans{
-	background: #fbfbfc;
-}
-.left-side.trans{
-	background: #fbfbfc;
-}
-.addtrans-content{
-	background: #fbfbfc;
-	min-height: 100%;
-}
-.addtrans-text{
-	margin-top: 50px;
-}
-.item.item-input.trans, .item.item-input.trans input{
-	background: #fbfbfc;
-	color: #3b3b3c;
-	border: none;
-}
-.vertical.trans{
-	margin-left: -20px;
-	margin-top: 10px;
-}
-.goal-text.trans{
-	margin-top: 0;
-	border: none;
-}
-.addtrans-input{
-	margin-left: 35px;
-}
-.addtrans-item{
-	margin-top: 20px;
-	padding-left: 20px;
-	border-bottom: 3px solid #d2d2d2;
-	margin-bottom: 10px;
-}
-.trans-img{
-	width: 35px;
-	height: 49px;
-}
-.trans-img img{
-	width: 100%;
-	height: 100%;
-	padding: 10px 10px 10px 0;
-	max-height: 52px;
-	vertical-align: middle;
-}
-img.add-transaction.trans{
-	top: 90%;
-}
-/*=====  End of AddTrans Style  ======*/
-
-/*=================================
-=            Tab Style            =
-=================================*/
-
-.this-tabs {
-    max-width: 100%;
-    float: none;
-    list-style: none;
-    padding: 0;
-    background: background: #e2e2e0;
-}
-.this-tabs:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-.this-tabs input[type=radio] {
-    display:none;
-}
-.this-tabs label {
-    display: block;
-    float: left;
-    width: 33.3333%;
-    color: #211c1c;
-    font-weight: normal;
-    text-decoration: none;
-    text-align: center;
-    line-height: 2;
-    cursor: pointer;
-    -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
-    transition: all 0.5s;
-    font-family: "Neris-Black";
-    padding: 15px;
-    background: #e2e2e0;
-}
-.this-tabs label span {
-    display: none;
-}
-.this-tabs label i {
-    padding: 5px;
-    margin-right: 0;
-}
-.this-tabs label:hover {
-    color: #211c1c;
-}
-.tab-content {
-    display: none;
-    width: 100%;
-    float: left;
-    box-sizing: border-box;
-    background-color:#fbfbfc;
-}
-.tab-content * {
-    -webkit-animation: scale 0.7s ease-in-out;
-    -moz-animation: scale 0.7s ease-in-out;
-    animation: scale 0.7s ease-in-out;
-}
-@keyframes scale {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-    }
-  50% {
-    transform: scale(1.01);
-    opacity: 0.5;
-    }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.this-tabs [id^="tab"]:checked + label {
-    background: #fbfbfc;
-}
-#tab1:checked ~ #tab-content1,
-#tab2:checked ~ #tab-content2,
-#tab3:checked ~ #tab-content3 {
-    display: block;
-}
-
-/*=====  End of Tab Style  ======*/
-
-/*==================================================
-=            Category Transaction Style            =
-==================================================*/
-
-
-
-/*=====  End of Category Transaction Style  ======*/
-
-
-.reset-margin{
-	margin:0;
-}

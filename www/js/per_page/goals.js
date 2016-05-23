@@ -18,6 +18,36 @@ $( document ).ready( function() {
   GetData();
 } );
 
+function nabungTetap() {
+  // body...
+  alert($(slick.$slides[currentSlide]));
+}
+
+function nabungCustom() {
+  // body...
+}
+
+function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
+  $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
+  var dataToBeSent = {
+    'TYPE'      : 'add_nabung',
+    'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
+    'TARGET_ID' : target_id,
+    'NAMA_BARANG': nama_barang,
+    'REKENING'  : localStorage.getItem('REKENING'),
+    'SALDO_AWAL': saldo_awal,
+    'JUMLAH_NABUNG': jumlah_nabung,
+    'TANGGAL' : new Date()
+  };
+  // SpinnerPlugin.activityStart("Get List Goal...");
+  $.post(url, dataToBeSent, function(data, textStatus) {
+    // alert(data.message);
+    if(data.status != '300'){
+
+    }
+  });
+}
+
 function checkInput() {
   return ($('#inputNama').val() != "" && $('#inputHarga').val() != "" && $('#inputDate').val() != "" && $('#smallImage').attr('src') != "img/thing.png");
 }
@@ -56,6 +86,12 @@ function refresh() {
 }
 
 function GetData() {
+  // var date1 = new Date(data.data[0].DUE_DATE);
+  // var date2 = new Date();
+  // var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  // var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+  // // alert(diffDays);
+  // $('#showNeededSave').html('Rp. ' + Math.ceil(Number(data.data[0].HARGA)/Number(diffDays)).formatMoney(2,',','.'));
   $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
   var dataToBeSent = {
     'TYPE'      : 'list_target',
