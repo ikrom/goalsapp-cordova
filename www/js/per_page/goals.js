@@ -77,37 +77,11 @@ function checkInput() {
   return ($('#inputNama').val() != "" && $('#inputHarga').val() != "" && $('#inputDate').val() != "" && $('#smallImage').attr('src') != "img/thing.png");
 }
 
-function changeSubmitButton() {
-  if(checkInput()){
-    $('#ini').attr('src','img/icon_done2.png');
-  } else {
-    $('#ini').attr('src','img/icon_done.png');
-  }
-}
-
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
     alert('You must logged in first');
     window.location.href = "login.html";
   }
-  $('#inputNama').on('input',function () {
-    changeSubmitButton();
-  });
-  $('#inputHarga').on('input',function () {
-    changeSubmitButton();
-  });
-  $('#inputDate').on('input',function () {
-    changeSubmitButton();
-  });
-  $('#inputNama').on('keyup',function () {
-    changeSubmitButton();
-  });
-  $('#inputHarga').on('keyup',function () {
-    changeSubmitButton();
-  });
-  $('#inputDate').on('keyup',function () {
-    changeSubmitButton();
-  });
 }
 
 function GetData() {
