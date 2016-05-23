@@ -229,7 +229,7 @@ input::-webkit-input-placeholder {
 ==================================*/
 .test-circle{
 	margin-top: -45px;
-	/*background: url('../img/add_goals.png') center no-repeat;*/
+	background: url('../img/add_goals.png') center no-repeat;
 	background-size: 50px;
 	background-position: 52% 54%;
 }
@@ -495,6 +495,7 @@ body.trans .header-title{
 	background: #fbfbfc;
 	color: #3b3b3c;
 	border: none;
+	margin-top: 5px;
 }
 .vertical.trans{
 	margin-left: -20px;
@@ -508,18 +509,14 @@ body.trans .header-title{
 	margin-left: 35px;
 }
 .addtrans-item{
-	margin-top: 20px;
 	padding-left: 20px;
 	border-bottom: 3px solid #d2d2d2;
-	margin-bottom: 10px;
 }
 .trans-img{
-	width: 35px;
-	height: 49px;
+	width: 20%;
 }
 .trans-img img{
-	width: 100%;
-	height: 100%;
+	width: 60%;
 	padding: 10px 10px 10px 0;
 	max-height: 52px;
 	vertical-align: middle;
@@ -615,10 +612,34 @@ img.add-transaction.trans{
 =            Category Transaction Style            =
 ==================================================*/
 
+.category-trans{
+	margin-left: 55px;
+}
+.category-item{
+	padding-left: 20px;
+	border-bottom: 3px solid #d2d2d2;
+	height: 60px;
+}
+.this-tabs label.item{
+	width: 100%;
+	text-align: left;
+	padding: 10px;
+	margin-bottom: 0;
+	margin-top: 4px;
+	border: none;
+}
+.trans-img{
+	width: 20%;
+	margin-top: 7px;
+}
+.item.item-input.noitalic input{
+	font-family: "Neris-Black";
 
-
+}
 /*=====  End of Category Transaction Style  ======*/
-
+.trans-img img{
+	width: auto;
+}
 
 .reset-margin{
 	margin:0;

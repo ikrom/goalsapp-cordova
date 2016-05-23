@@ -18,6 +18,10 @@ $( document ).ready( function() {
   GetData();
 } );
 
+function gotoDetail() {
+  window.location.href="detailtransaksi.html";
+}
+
 function itungJumlahNabung() {
   var activeSlide = $('#content_goals').find('.slick-active');
   target_id = activeSlide.find('.target_id').val();

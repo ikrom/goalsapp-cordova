@@ -110,6 +110,18 @@ input[type="date"]:before {
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face{
+	font-family: "Neris-Light";
+	src: url("../fonts/Neris-Light.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: "Neris-Thin";
+	src: url("../fonts/Neris-Thin.otf");
+	font-weight: normal;
+	font-style: normal;
+}
 /*=====  End of Font Style  ======*/
 
 /*======================================
@@ -269,7 +281,7 @@ z-index: 2;
 }
 img.save-btn{
 	position: absolute;
-	z-index: 10;
+	z-index: 50;
 	top: 14%;
 	right: 14%;
 	width: 15%;
@@ -637,6 +649,195 @@ img.add-transaction.trans{
 
 }
 /*=====  End of Category Transaction Style  ======*/
+
+/*================================================
+=            Detail Transaction Style            =
+================================================*/
+.row.inside{
+	margin-left: 11px;
+}
+.detailtrans{
+	margin-left: 55px;
+	font-family: 'Neris-Black';
+	font-size: 16px;
+}
+.monthly{
+	margin-top: 20px;
+	padding-bottom: 50px;
+	border-bottom: 3px solid #d2d2d2;
+}
+.text-inflow, .text-outflow{
+	font-family: 'Neris-Light';
+	width: 40%;
+}
+.text-inflow{
+	color: #49b442;
+}
+.text-outflow{
+	color:#e81061;	
+	margin-top: 5px;
+}
+.monthly-inflow, .monthly-outflow{
+	text-align: right;
+	width: 50%;
+	font-family: 'Neris-Light';
+	margin-top: 5px;
+}
+.monthly-total{
+	width: 90%;
+	margin-top: 20px;
+	text-align: right;
+}
+.monthly-arrow{
+	margin: 20px auto 0;
+	width: 10%;
+	height: 20px;
+}
+.monthly-arrow img{
+	width: 10px;
+	margin-left: 10px;
+}
+img.save-btn.chart{
+	top: 35%;
+	right: 10%;
+}
+img.save-btn.home{
+	top: 90%;
+	right: 10%;
+	position: fixed;
+}
+.daily{
+	width: 100%;
+	margin: 10px 0;
+	border-bottom: 3px solid #d2d2d2;
+}
+.transaction-date{
+	width: 15%;
+	font-size: 30px;
+}
+.transaction-day{
+	width: 40%;
+	vertical-align: text-bottom;
+	font-size: 11px;
+	padding-left: 5px;
+	padding-top: 10px;
+}
+.transaction-money{
+	width: 40%;
+	text-align: right;
+	font-family: 'Neris-Light';
+	margin: auto;
+}
+.detail-daily{
+	margin-top: 15px;
+}
+.transaction-category.detail, .category-daily{
+	padding-left: 5px;
+}
+span.category.detail{
+	font-size: 12px;
+	display: block;
+	margin-bottom: -5px;
+}
+span.note{
+	font-size: 12px;
+	display: block;
+}
+.transaction-img.img-daily img{
+	width: 80%;
+}
+.row+.row.item-detail{
+	margin-top: 8px;
+}
+/*=====  End of Detail Transaction Style  ======*/
+
+/*=======================================
+=            Accordion Style            =
+=======================================*/
+
+.ac-container{
+	width: 100%;
+	margin: 10px auto 30px auto;
+	padding-right: 20px;
+	text-align: left;
+}
+.ac-container label{
+	font-family: 'Neris-Black';
+	padding-left: 16px;
+	position: relative;
+	z-index: 20;
+	display: block;
+	height: 30px;
+	cursor: pointer;
+	color: #211c1c;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	line-height: 33px;
+	font-size: 16px;
+	background: #e2e2e0;
+	text-transform: uppercase;
+	
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3)
+}
+.ac-container label:hover{
+	background: #e2e2e0;
+}
+.ac-container input:checked + label,
+.ac-container input:checked + label:hover{
+	background: #e2e2e0;
+	color: #211c1c;
+	text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+	box-shadow: 
+		0px 0px 0px 1px rgba(155,155,155,0.3), 
+		0px 2px 2px rgba(0,0,0,0.1);
+}
+.ac-container label:hover:after,
+.ac-container input:checked + label:hover:after,
+.ac-container label:before{
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: 13px;
+	top: 3px;
+	background: transparent url(../img/arrow_down.png) no-repeat center center;	
+}
+.ac-container input:checked + label:hover:after{
+	/*background-image: url(../img/arrow_up.png);*/
+}
+.ac-container input{
+	display: none;
+}
+.ac-container .ac-content{
+	margin-top: -1px;
+	overflow: hidden;
+	max-height: 0px;
+	position: relative;
+	z-index: 10;
+	-webkit-transition: max-height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-moz-transition: max-height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-o-transition: max-height 0.3s ease-in-out, box-shadow 0.6s linear;
+	-ms-transition: max-height 0.3s ease-in-out, box-shadow 0.6s linear;
+	transition: max-height 0.3s ease-in-out, box-shadow 0.6s linear;
+}
+.ac-container input:checked ~ .ac-content{
+	-webkit-transition: max-height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-moz-transition: max-height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-o-transition: max-height 0.5s ease-in-out, box-shadow 0.1s linear;
+	-ms-transition: max-height 0.5s ease-in-out, box-shadow 0.1s linear;
+	transition: max-height 0.5s ease-in-out, box-shadow 0.1s linear;
+	
+}
+.ac-container input:checked ~ .ac-content{
+	max-height: 2000px;
+}
+.ac-content{
+	border: none;
+}
+
+/*=====  End of Accordion Style  ======*/
+
+
 .trans-img img{
 	width: auto;
 }
