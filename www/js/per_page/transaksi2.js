@@ -130,7 +130,7 @@ function Submit() {
       'REMINDER': $('#inputReminder').val()
     };
     console.log(dataToBeSent);
-    // SpinnerPlugin.activityStart("Add Transaction...");
+    SpinnerPlugin.activityStart("Add Transaction...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       alert(data.message);
       if(data.status != '300'){
@@ -138,7 +138,7 @@ function Submit() {
         removeStorage();
         window.location.href = "goals.html";
       }
-      // SpinnerPlugin.activityStop();
+      SpinnerPlugin.activityStop();
     }, "json");
   }
   else {

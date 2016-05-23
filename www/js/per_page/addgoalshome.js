@@ -52,7 +52,7 @@ function Submit() {
       'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
       'NAMA'     : $('#inputNama').val(),
       'HARGA'  : $('#inputHarga').val(),
-      'FOTO'      : '',
+      'FOTO'      : $('#smallImage').attr('src'),
       'DUE_DATE'  : $('#inputDate').val()
     };
     SpinnerPlugin.activityStart("Add Goal...");
