@@ -91,7 +91,7 @@ function GetData() {
     'TYPE'      : 'list_target',
     'AKUN_ID'   : localStorage.getItem('AKUN_ID')
   };
-  SpinnerPlugin.activityStart("Get Data...");
+  // SpinnerPlugin.activityStart("Get Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var goal_item = '';
@@ -211,6 +211,6 @@ function GetData() {
         $(transaction_item).appendTo('#contentTransaction');
       } );
     }
-    SpinnerPlugin.activityStop();
+    // SpinnerPlugin.activityStop();
   }, "json");
 }
