@@ -3,7 +3,9 @@ body{
 	padding: 0;
 	margin: 0;
 	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll !important;
+}
+html{
+	overflow: auto;
 }
 textarea:hover, 
 input:hover, 
@@ -17,6 +19,9 @@ button:hover
 {
     outline:0px !important;
     -webkit-appearance:none;
+}
+.no-padding{
+	padding: 0;
 }
 .text-form{
 	padding: 0 20px; 
@@ -41,6 +46,7 @@ button:hover
 .input-img .img-photo img{
 	width: 100%;
 	min-height: 200px;
+	max-height: 250px;
 	border-radius: 50%;
 	border-color: #FAE903;
 	border-style: solid;
@@ -112,6 +118,29 @@ input[type="date"]:before {
 	font-style: normal;
 }
 /*=====  End of Font Style  ======*/
+
+/*======================================
+=            Sidemenu Style            =
+======================================*/
+
+.side-menu{
+	position: fixed;
+	left: 15px;
+	top: 15px;
+}
+#sidebar{
+	position: fixed; 
+	display: inline-block; 
+	top: 0px; 
+	height: 100%; 
+	width: 200px; 
+	left: -200px; 
+	background-color: black; 
+	transition: all 0.5s ease-in-out;
+	z-index: 100;
+}
+
+/*=====  End of Sidemenu Style  ======*/
 
 /*=====================================
 =            Splash Style            =
@@ -201,3 +230,141 @@ input::-webkit-input-placeholder {
 	margin: 20px 0 10px;
 }
 /*=====  End of Budget Style  ======*/
+
+/*==================================
+=            Goal Style            =
+==================================*/
+.test-circle{
+	margin-top: -45px;
+	/*background: url('../img/add_goals.png') center no-repeat;*/
+	background-size: 50px;
+	background-position: 52% 54%;
+}
+.goal-img{
+	width: 70%;
+	height: 70%;
+	margin: 30px auto 10px;
+}
+.main-content{
+	height: auto;
+	padding-bottom: 40px;
+	-webkit-box-shadow: 0px 9px 24px -7px rgba(0,0,0,0.64);
+-moz-box-shadow: 0px 9px 24px -7px rgba(0,0,0,0.64);
+box-shadow: 0px 9px 24px -7px rgba(0,0,0,0.64);
+z-index: 2;
+}
+.goal-content{
+	min-height: 90%;
+	height: 80%;
+
+}
+.goal-text{
+	padding: 0 55px;
+	margin-top: -25px;
+	font-size: 11px;
+}
+.goal-name{
+	font-family: "Neris-Black";
+	font-size: 32px;
+	margin: 10px auto;
+	text-align: left;
+}
+.trans-content{
+	background: white;
+	margin-top: 5px;
+	padding-top: 35px;
+}
+img.save-btn{
+	position: absolute;
+	z-index: 10;
+	top: 14%;
+	right: 14%;
+	width: 15%;
+}
+.vertical-text {
+	transform: rotate(-90deg);
+	transform-origin: left top 0;
+	position: absolute;
+	left: 10px;
+	top: 105px;
+	font-size: 12px;
+}
+
+/*=====  End of Goal Style  ======*/
+
+/*=========================================
+=            Transaction Style            =
+=========================================*/
+.left-side{
+	background: white;
+	width: 55px;
+	min-height: 100px;
+	margin-top: -35px;
+	float: left;
+}
+.vertical{
+	transform: rotate(-90deg);
+	width: 100px;
+	margin-left: -20px;
+	margin-top: 20px;
+	font-size: 12px;
+}
+.money-transaction{
+	border-bottom: 3px solid #d2d2d2;
+	padding-bottom: 20px;
+	padding-right: 10px;
+	font-size: 24px;
+}
+img.add-transaction{
+	top:84%;
+}
+.today-transaction{
+	padding-right: 0;
+}
+.row.detail-transaction{
+	margin-bottom: 17px;
+}
+.transaction-text{
+	margin-top: 0;
+}
+.transaction-img{
+	width: 15%;
+	margin-top: 10px;
+}
+.transaction-img img{
+	width: 20px;
+}
+.transaction-category{
+	width: 45%;
+}
+span.category{
+	text-transform: uppercase;
+	font-family: "Neris-Black";
+}
+.transaction-price{
+	width: 30%;
+	font-family: "Neris-Black";
+	font-size: 18px;
+	margin:auto;
+	text-align: right;
+}
+.transaction-arrow{
+	width: 10%;
+	margin:auto;
+	padding-left: 5px;
+}
+.transaction-arrow img{
+	width: 10px;
+}
+.transaction-category.total{
+	width: 35%;
+}
+.total{
+	font-family: "Neris-Black";
+	margin:0;
+	width: 40%;
+}
+.row.detail-transaction.total-transaction{
+	padding-bottom: 20px;
+}
+/*=====  End of Transaction Style  ======*/
