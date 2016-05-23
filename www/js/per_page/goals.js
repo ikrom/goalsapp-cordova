@@ -65,7 +65,7 @@ function GetData() {
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var goal_item = '';
-    goal_item = '<div><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div><div class="goal-text goal-name">Add Goals</div></div>';
+    goal_item = '<div><a href="addgoalshome.html"><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div></a><div class="goal-text goal-name">Add Goals</div></div>';
     // $(goal_item).appendTo('#content_goals');
     $('#content_goals').prepend(goal_item);
     // $('#goals999').css("background", "url('img/add_goals.png') center no-repeat");

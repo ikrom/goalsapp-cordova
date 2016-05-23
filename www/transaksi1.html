@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+
+    <title>Transaksi Page</title>
+</head>
+<body class="trans">
+  <!-- sidemenu -->
+  <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div>
+
+	<div class="header-title text">transaction</div>
+    <div class="addtrans-content">
+      <div class="goal-text addtrans-text">add transaction</div>
+    </div>
+    <div class="login-form" method="post">
+      <div class="list list-inset">
+        <label class="item item-input trans">
+          <!-- Rp. -->
+          <input name="price" type="number" placeholder="Rp 000.000,00" class="custom-input" >
+        </label>
+      </div>
+      <a href="budget.html">
+        <button class="button  submit-button " type="submit">
+          <img src="img/icon_done.png">
+        </button>
+      </a>
+    </div>
+    
+</body>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        function toggle_sidebar()
+        {
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.left == "-200px")
+            {
+                sidebar.style.left = "0px";
+            }
+            else
+            {
+                sidebar.style.left = "-200px";
+            }
+        }
+    </script>
+</html>
