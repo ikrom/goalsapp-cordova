@@ -48,8 +48,7 @@ function add_transaction() {
 }
 
 function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
-  // alert('nabung');
-  // $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
+  
   var dataToBeSent = {
     'TYPE'      : 'add_nabung',
     'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
@@ -61,15 +60,15 @@ function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
     'TANGGAL' : new Date()
   };
 
-  // SpinnerPlugin.activityStart("Submit Data...");
+  SpinnerPlugin.activityStart("Submit Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     alert(data.message);
     if(data.status != '300'){
-      // SpinnerPlugin.activityStop();
+      SpinnerPlugin.activityStop();
       localStorage.setItem('REKENING',data.rekening);
       window.location.href = "goals.html";
     } else {
-      // SpinnerPlugin.activityStop();
+      SpinnerPlugin.activityStop();
     }
   }, "json");
 }
@@ -112,25 +111,20 @@ function refresh() {
 }
 
 function GetData() {
-  // var date1 = new Date(data.data[0].DUE_DATE);
-  // var date2 = new Date();
-  // var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-  // var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-  // // alert(diffDays);
-  // $('#showNeededSave').html('Rp. ' + Math.ceil(Number(data.data[0].HARGA)/Number(diffDays)).formatMoney(2,',','.'));
+
   $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
   var dataToBeSent = {
     'TYPE'      : 'list_target',
     'AKUN_ID'   : localStorage.getItem('AKUN_ID')
   };
-  // SpinnerPlugin.activityStart("Get Data...");
+  SpinnerPlugin.activityStart("Get Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var goal_item = '';
     goal_item = '<div><a href="addgoalshome.html"><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div></a><div class="goal-text goal-name">Add Goals</div></div>';
-    // $(goal_item).appendTo('#content_goals');
+    
     $('#content_goals').prepend(goal_item);
-    // $('#goals999').css("background", "url('img/add_goals.png') center no-repeat");
+    
     if(data.status != '300'){
       $.each( data.data, function( i, item ) {
         var id;
@@ -243,6 +237,6 @@ function GetData() {
         $(transaction_item).appendTo('#contentTransaction');
       } );
     }
-    // SpinnerPlugin.activityStop();
+    SpinnerPlugin.activityStop();
   }, "json");
 }
