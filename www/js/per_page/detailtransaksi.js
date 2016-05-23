@@ -30,6 +30,7 @@ function refresh() {
 }
 
 function GetData() {
+  // $('#loading').show();
   var inflow = 0;
   var outflow = 0;
   var day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -49,6 +50,7 @@ function GetData() {
       'TANGGAL'   : tanggal
     };
     // SpinnerPlugin.activityStart("Get List Transaksi...");
+    $('#loading').show();
     $.ajax({
       type: 'POST',
       url: url,
@@ -127,6 +129,7 @@ function GetData() {
       async:false
     }).done(function () {
       // SpinnerPlugin.activityStop();
+      $('#loading').hide();
     });
   }
   $('#showTotalInflow').html(inflow);
