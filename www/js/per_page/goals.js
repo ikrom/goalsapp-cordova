@@ -1,6 +1,6 @@
 /* global variables */
 var url = "http://goalsapp.heliohost.org/";
-
+var jumlah_nabung, target_id, nama_barang, saldo;
 Number.prototype.formatMoney = function(c, d, t){
 var n = this, 
     c = isNaN(c = Math.abs(c)) ? 2 : c, 
@@ -18,17 +18,37 @@ $( document ).ready( function() {
   GetData();
 } );
 
+function itungJumlahNabung() {
+  var activeSlide = $('#content_goals').find('.slick-active');
+  target_id = activeSlide.find('.target_id').val();
+  nama_barang = activeSlide.find('.nama_barang').val();
+  saldo = activeSlide.find('.saldo').val();
+  var due_date = activeSlide.find('.due_date').val();
+  var harga = activeSlide.find('.harga').val();
+
+  var date1 = new Date(due_date);
+  var date2 = new Date();
+  var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+  jumlah_nabung = Math.ceil((Number(harga)-Number(saldo))/Number(diffDays));
+  $('#showNabungConstant').html('Rp. ' + Number(jumlah_nabung).formatMoney(2,',','.'));
+}
+
 function nabungTetap() {
-  // body...
-  alert($(slick.$slides[currentSlide]));
+  submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal);
 }
 
 function nabungCustom() {
-  // body...
+  jumlah_nabung = $('#inputNabung').val();
+  submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal);
+}
+
+function add_transaction() {
+  window.location.href = "transaksi1.html";
 }
 
 function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
-  $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
+  // $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
   var dataToBeSent = {
     'TYPE'      : 'add_nabung',
     'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
@@ -39,13 +59,17 @@ function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
     'JUMLAH_NABUNG': jumlah_nabung,
     'TANGGAL' : new Date()
   };
-  // SpinnerPlugin.activityStart("Get List Goal...");
-  $.post(url, dataToBeSent, function(data, textStatus) {
-    // alert(data.message);
-    if(data.status != '300'){
 
+  SpinnerPlugin.activityStart("Submit Data...");
+  $.post(url, dataToBeSent, function(data, textStatus) {
+    alert(data.message);
+    if(data.status != '300'){
+      SpinnerPlugin.activityStop();
+      location.reload();
+    } else {
+      SpinnerPlugin.activityStop();
     }
-  });
+  }, "json");
 }
 
 function checkInput() {
@@ -97,7 +121,7 @@ function GetData() {
     'TYPE'      : 'list_target',
     'AKUN_ID'   : localStorage.getItem('AKUN_ID')
   };
-  // SpinnerPlugin.activityStart("Get List Goal...");
+  // SpinnerPlugin.activityStart("Get Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var goal_item = '';
@@ -124,7 +148,7 @@ function GetData() {
         } );
         // alert(harga + ' ' + saldo);
         var progress = 100*(1 - ((harga-saldo)/harga));
-        goal_item = '<div><div id="goals' + id + '" class="test-circle" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div id="goals' + id + '" class="test-circle" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
         // $(goal_item).appendTo('#content_goals');
         $('#content_goals').prepend(goal_item);
         // $('#goals' + id).css("background-image", "url(" + foto + ") center no-repeat");
