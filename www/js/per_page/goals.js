@@ -51,8 +51,12 @@ function GetData() {
   };
   // SpinnerPlugin.activityStart("Get List Goal...");
   $.post(url, dataToBeSent, function(data, textStatus) {
-    alert(data.message);
+    // alert(data.message);
     var goal_item = '';
+    goal_item = '<div><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div><div class="goal-text goal-name">Add Goals</div></div>';
+    // $(goal_item).appendTo('#content_goals');
+    $('#content_goals').prepend(goal_item);
+    // $('#goals999').css("background", "url('img/add_goals.png') center no-repeat");
     if(data.status != '300'){
       $.each( data.data, function( i, item ) {
         var id;
@@ -72,10 +76,10 @@ function GetData() {
         } );
         // alert(harga + ' ' + saldo);
         var progress = 100*(1 - ((harga-saldo)/harga));
-        goal_item = '<div><div id="goals' + id + '" class="test-circle"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        goal_item = '<div><div id="goals' + id + '" class="test-circle" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
         // $(goal_item).appendTo('#content_goals');
         $('#content_goals').prepend(goal_item);
-        $('#goals' + id).css("background-image", "url(" + foto + ") center no-repeat");
+        // $('#goals' + id).css("background-image", "url(" + foto + ") center no-repeat");
       } );
       $('.goal-content').slick({
         dots: true  ,
@@ -111,6 +115,21 @@ function GetData() {
           percentages: [10, 20, 30]
         });
       } );
+      $("#goals999").circliful({
+        animation: 1,
+        animationStep: 5,
+        foregroundBorderWidth: 10,
+        foregroundColor: "#F8D720",
+        backgroundBorderWidth: 10,
+        backgroundColor: "#BDBDBD",
+        percent: 0,
+        textSize: 28,
+        textStyle: 'font-size: 12px;',
+        textColor: '#E9E9E8',
+        targetColor: '#E9E9E8',
+        multiPercentage: 1,
+        percentages: [10, 20, 30]
+      });
     }
     // SpinnerPlugin.activityStop();
   }, "json");
