@@ -44,7 +44,7 @@ function GetData() {
       'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
       'TANGGAL'   : tanggal
     };
-    SpinnerPlugin.activityStart("Get List Transaksi...");
+    // SpinnerPlugin.activityStart("Get List Transaksi...");
     $.ajax({
       type: 'POST',
       url: url,
@@ -122,7 +122,7 @@ function GetData() {
       dataType: 'json',
       async:false
     }).done(function () {
-      SpinnerPlugin.activityStop();
+      // SpinnerPlugin.activityStop();
     });
   }
   $('#showTotalInflow').html(inflow);
