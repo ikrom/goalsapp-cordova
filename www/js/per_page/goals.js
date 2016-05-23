@@ -145,4 +145,42 @@ function GetData() {
     }
     // SpinnerPlugin.activityStop();
   }, "json");
+  var dataToBeSent = {
+    'TYPE'      : 'get_transaksi',
+    'AKUN_ID'   : localStorage.getItem('AKUN_ID')
+  };
+  // SpinnerPlugin.activityStart("Get List Goal...");
+  $.post(url, dataToBeSent, function(data, textStatus) {
+    // alert(data.message);
+    var transaction_item = '';
+    if(data.status != '300'){
+      $.each( data.data, function( i, item ) {
+        var id;
+        var jenis;
+        var nama;
+        var jumlah;
+        var foto;
+        var kategori;
+        var kategori_transaksi_id;
+        var in_or_out;
+        console.log(this);
+        $.each( this, function( j, item2 ) {
+          if(j == 'ID') id = item2;
+          else if(j == 'JENIS') jenis = item2;
+          else if(j == 'NAMA_TRANSAKSI') nama = item2;
+          else if(j == 'FOTO') foto = item2;
+          else if(j == 'JUMLAH') jumlah = item2;
+          else if(j == 'KATEGORI') kategori = item2;
+        } );
+        if(jenis == 1) in_or_out = 'img/expense.png';
+        else if(jenis == 2) in_or_out = 'img/income.png';
+        else if(kategori_transaksi_id == 14) in_or_out = 'img/income.png';
+        else in_or_out = 'img/expense.png';
+        // alert(harga + ' ' + saldo);
+        transaction_item = '<div class="row detail-transaction no-padding"><div class="transaction-img"><img src="' + foto + '"></div><div class="transaction-category"><span class="category">' + kategori + '</span><br>' + nama + '</div><div class="transaction-price">' + jumlah + '</div><div class="transaction-arrow"><img src="' + in_or_out + '"></div></div>';
+        $(transaction_item).appendTo('#contentTransaction');
+      } );
+    }
+    // SpinnerPlugin.activityStop();
+  }, "json");
 }
