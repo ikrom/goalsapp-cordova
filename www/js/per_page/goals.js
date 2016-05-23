@@ -35,12 +35,12 @@ function itungJumlahNabung() {
 }
 
 function nabungTetap() {
-  submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal);
+  submitNabung(jumlah_nabung,target_id,nama_barang,saldo);
 }
 
 function nabungCustom() {
   jumlah_nabung = $('#inputNabung').val();
-  submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal);
+  submitNabung(jumlah_nabung,target_id,nama_barang,saldo);
 }
 
 function add_transaction() {
@@ -48,6 +48,7 @@ function add_transaction() {
 }
 
 function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
+  // alert('nabung');
   // $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
   var dataToBeSent = {
     'TYPE'      : 'add_nabung',
@@ -60,14 +61,15 @@ function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
     'TANGGAL' : new Date()
   };
 
-  SpinnerPlugin.activityStart("Submit Data...");
+  // SpinnerPlugin.activityStart("Submit Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     alert(data.message);
     if(data.status != '300'){
-      SpinnerPlugin.activityStop();
-      location.reload();
+      // SpinnerPlugin.activityStop();
+      localStorage.setItem('REKENING',data.rekening);
+      window.location.href = "goals.html";
     } else {
-      SpinnerPlugin.activityStop();
+      // SpinnerPlugin.activityStop();
     }
   }, "json");
 }
