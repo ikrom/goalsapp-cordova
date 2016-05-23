@@ -18,6 +18,10 @@ $( document ).ready( function() {
   GetData();
 } );
 
+function gotoHome() {
+  window.location.href = "goals.html";
+}
+
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
     alert('You must logged in first');
