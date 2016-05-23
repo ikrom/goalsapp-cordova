@@ -10,14 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
     <script src="js/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript">
-      function select_transaction() {
-        window.location.href = "transaksi3.html";
-      }
-      function Submit() {
-        window.location.href = "goals.html";
-      }
-    </script>
+    <script src="js/per_page/transaksi2.js"></script>
     <title>Transaksi2 Page</title>
 </head>
 <body class="trans">
@@ -28,49 +21,49 @@
 	<div class="header-title text">transaction</div>
     <div class="trans-content trans">
     <div class="left-side trans"><div class="vertical trans">details</div></div>  
-    <div class="goal-text goal-name money-transaction trans">Rp. 120.000,00</div>
-    <div class="goal-text transaction-text">28 april 2016</div>
+    <div class="goal-text goal-name money-transaction trans" id="showTransactionNumber">Rp. 120.000,00</div>
+    <div class="goal-text transaction-text" id="showDate">28 april 2016</div>
     <div class="addtrans-input">
       <div class="row nopadding addtrans-item">
-        <div class="trans-img"><img src="img/category_food.png"></div>
+        <div class="trans-img"><img src="img/category_food.png" id="showCategoryPic"></div>
         <label class="item item-input trans">
-          <input name="category" type="text" placeholder="What transaction" onclick="select_transaction()">
+          <input name="category" type="text" placeholder="What transaction" id="showCategoryTitle" onclick="select_transaction()">
         </label>
       </div>  
       <div class="row nopadding addtrans-item">
         <div class="trans-img"><img src="img/note.png"></div>
         <label class="item item-input trans">
-          <input name="category" type="text" placeholder="Note" >
+          <input name="category" type="text" placeholder="Note" id="inputNote">
         </label>
       </div>  
       <div class="row no-padding addtrans-item">
         <div class="trans-img"><img src="img/today.png"></div>
         <label class="item item-input trans">
-           <input name="date goal" type="date" placeholder=""  onfocus="(this.type='date')" class="date-input">
+           <input name="date goal" type="date" placeholder=""  onfocus="(this.type='date')" class="date-input" id="inputDate">
         </label>
       </div>  
       <div class="row no-padding addtrans-item">
         <div class="trans-img"><img src="img/e_friend.png"></div>
         <label class="item item-input trans">
-          <input name="category" type="text" placeholder="With" >
+          <input name="category" type="text" placeholder="With" id="inputWith">
         </label>
       </div>  
       <div class="row no-padding addtrans-item">
         <div class="trans-img"><img src="img/category_salary.png"></div>
         <label class="item item-input trans">
-          <input name="category" type="number" placeholder="Cash" >
+          <input name="category" type="number" placeholder="Cash" id="inputCash">
         </label>
       </div>  
       <div class="row no-padding addtrans-item">
         <div class="trans-img"><img src="img/location.png"></div>
         <label class="item item-input trans">
-          <input name="category" type="text" placeholder="Location" >
+          <input name="category" type="text" placeholder="Location" id="inputLocation">
         </label>
       </div>  
       <div class="row no-padding addtrans-item">
         <div class="trans-img"><img src="img/remind.png"></div>
         <label class="item item-input trans">
-          <input name="category" type="time" placeholder="Remind" >
+          <input name="category" type="time" placeholder="Remind" id="inputReminder">
         </label>
       </div>  
     </div>

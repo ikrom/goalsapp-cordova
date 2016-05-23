@@ -60,7 +60,7 @@ function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
     'TANGGAL' : new Date()
   };
 
-  SpinnerPlugin.activityStart("Submit Data...");
+  // SpinnerPlugin.activityStart("Submit Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     alert(data.message);
     if(data.status != '300'){
@@ -68,7 +68,7 @@ function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
       localStorage.setItem('REKENING',data.rekening);
       window.location.href = "goals.html";
     } else {
-      SpinnerPlugin.activityStop();
+      // SpinnerPlugin.activityStop();
     }
   }, "json");
 }
@@ -95,9 +95,12 @@ function GetData() {
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var goal_item = '';
-    goal_item = '<div><a href="addgoalshome.html"><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div></a><div class="goal-text goal-name">Add Goals</div></div>';
+    if(data.status != '300' && data.data.length < 6){
+      // alert(data.data.length);
+      goal_item = '<div><a href="addgoalshome.html"><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div></a><div class="goal-text goal-name">Add Goals</div></div>';
     
-    $('#content_goals').prepend(goal_item);
+      $('#content_goals').prepend(goal_item);
+    }
     
     if(data.status != '300'){
       $.each( data.data, function( i, item ) {
@@ -179,7 +182,7 @@ function GetData() {
     'TYPE'      : 'get_transaksi',
     'AKUN_ID'   : localStorage.getItem('AKUN_ID')
   };
-  SpinnerPlugin.activityStart("Get List Goal...");
+  // SpinnerPlugin.activityStart("Get List Goal...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var transaction_item = '';
@@ -211,6 +214,6 @@ function GetData() {
         $(transaction_item).appendTo('#contentTransaction');
       } );
     }
-    SpinnerPlugin.activityStop();
+    // SpinnerPlugin.activityStop();
   }, "json");
 }
