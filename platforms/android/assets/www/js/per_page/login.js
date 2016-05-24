@@ -10,7 +10,7 @@ function refresh() {
   if(localStorage.getItem('USERNAME') != null){
     alert(localStorage.getItem('USERNAME') + ' was logged in');
     //window.location.href = "select_kapal.html";
-    alert("go to home page");
+    window.location.href = "goals.html";
   }
   $('#inputEmail').on('input',function () {
     if($('#inputEmail').val() != "" && $('#inputPassword').val() != ""){
@@ -60,8 +60,7 @@ function Submit() {
         localStorage.setItem('USERNAME', data.data[0].USERNAME);
         localStorage.setItem('REKENING', data.data[0].REKENING);
         localStorage.setItem('FOTO', data.data[0].FOTO);
-        // window.location.href = "select_kapal.html";
-        alert("go to home page");
+        window.location.href = "goals.html";
       }
       SpinnerPlugin.activityStop();
     }, "json");

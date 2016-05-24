@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+    <script src="js/per_page/transaksi2.js"></script>
+    <title>Transaksi2 Page</title>
+</head>
+<body class="trans">
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div> -->
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
+
+	<div class="header-title text">transaction</div>
+    <div class="trans-content trans">
+    <div class="left-side trans"><div class="vertical trans">details</div></div>  
+    <div class="goal-text goal-name money-transaction trans" id="showTransactionNumber">Rp. 120.000,00</div>
+    <div class="goal-text transaction-text" id="showDate">28 april 2016</div>
+    <div class="addtrans-input">
+      <div class="row nopadding addtrans-item">
+        <div class="trans-img"><img src="img/category_food.png" id="showCategoryPic"></div>
+        <label class="item item-input trans">
+          <input name="category" type="text" placeholder="What transaction" id="showCategoryTitle" onclick="select_transaction()">
+        </label>
+      </div>  
+      <div class="row nopadding addtrans-item">
+        <div class="trans-img"><img src="img/note.png"></div>
+        <label class="item item-input trans">
+          <input name="category" type="text" placeholder="Note" id="inputNote">
+        </label>
+      </div>  
+      <div class="row no-padding addtrans-item">
+        <div class="trans-img"><img src="img/today.png"></div>
+        <label class="item item-input trans">
+           <input name="date goal" type="date" placeholder=""  onfocus="(this.type='date')" class="date-input" id="inputDate">
+        </label>
+      </div>  
+      <div class="row no-padding addtrans-item">
+        <div class="trans-img"><img src="img/e_friend.png"></div>
+        <label class="item item-input trans">
+          <input name="category" type="text" placeholder="With" id="inputWith">
+        </label>
+      </div>  
+      <div class="row no-padding addtrans-item">
+        <div class="trans-img"><img src="img/category_salary.png"></div>
+        <label class="item item-input trans">
+          <input name="category" type="number" placeholder="Cash" id="inputCash">
+        </label>
+      </div>  
+      <div class="row no-padding addtrans-item">
+        <div class="trans-img"><img src="img/location.png"></div>
+        <label class="item item-input trans">
+          <input name="category" type="text" placeholder="Location" id="inputLocation">
+        </label>
+      </div>  
+      <div class="row no-padding addtrans-item">
+        <div class="trans-img"><img src="img/remind.png"></div>
+        <label class="item item-input trans">
+          <input name="category" type="time" placeholder="Remind" id="inputReminder">
+        </label>
+      </div>  
+    </div>
+    
+    <img class="save-btn add-transaction trans" src="img/icon_done2.png" onclick="Submit()">
+    
+  </div>
+    
+</body>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.nav').slideAndSwipe();
+      });
+      function toggle_sidebar()
+      {
+          var sidebar = document.getElementById("sidebar");
+          
+          console.log(sidebar.style.left);
+          
+          if(sidebar.style.left == "-200px")
+          {
+              sidebar.style.left = "0px";
+          }
+          else
+          {
+              sidebar.style.left = "-200px";
+          }
+      }
+    </script>
+</html>

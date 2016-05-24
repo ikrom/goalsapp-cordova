@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.circliful.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <!-- slideshow -->
+    <link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>
+    
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+    <script src="js/per_page/goals.js"></script>
+    <title>Goals Page</title>
+</head>
+<body>
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style="">
+  </div> -->
+   <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
+	<div class="header-title text"></div>
+
+  <!-- <div class="text" id="showLoading">Loading...</div> -->
+  <div class="main-content">
+    <div class="goal-content" id="content_goals">
+      <!-- <div>
+        <div class="test-circle">
+        </div>     
+        <div class="goal-text">30% on progress</div>
+        <div class="goal-text goal-name">nike roshe run</div>
+      </div>
+      <div>
+        <div class="test-circle"></div>     
+        <div class="goal-text">30% on progress</div>
+        <div class="goal-text goal-name">nike roshe run</div>
+      </div>
+      <div>
+        <div class="test-circle"></div>     
+        <div class="goal-text">30% on progress</div>
+        <div class="goal-text goal-name">nike roshe run</div>
+      </div> -->
+    </div>
+    <div class="vertical-text">goals</div>
+     <a href="#overlay" id="open-overlay" onclick="itungJumlahNabung()"><img class="save-btn" id="dolarButton" src="img/save_money2.png"></a>
+
+  </div>
+  <!-- <div class="main-content">
+    <div class="goal-content">
+      <div id="test-circle"></div>      <img class="save-btn" src="img/save_money.png">
+      <div class="goal-text">30% on progress</div>
+      <div class="goal-text goal-name">nike roshe run</div>
+    </div>
+  </div> -->
+  
+  <div class="trans-content">
+    <div class="left-side "><div class="vertical">your money</div></div>  
+    <div class="goal-text" onclick="gotoDetail()">tap to view full details</div>
+    <div class="goal-text goal-name money-transaction" id="showRekening">Rp. 120.000,00</div>
+    <img class="save-btn add-transaction" src="img/add_transaction.png" onclick="add_transaction()">
+    <div class="goal-text transaction-text">today transaction</div>
+    <div class="goal-text transaction-text today-transaction" id="contentTransaction">
+      <!-- <div class="row detail-transaction no-padding">
+        <div class="transaction-img"><img src="img/category_salary.png"></div>
+        <div class="transaction-category"><span class="category">salary</span><br>project</div>
+        <div class="transaction-price">200.000</div>
+        <div class="transaction-arrow"><img src="img/income.png"></div>
+      </div>
+      <div class="row detail-transaction no-padding">
+        <div class="transaction-img"><img src="img/category_food.png"></div>
+        <div class="transaction-category"><span class="category">food&beverages</span><br>warung munos</div>
+        <div class="transaction-price">12.000</div>
+        <div class="transaction-arrow"><img src="img/expense.png"></div>
+      </div>
+      <div class="row detail-transaction no-padding total-transaction">
+        <div class="transaction-img"></div>
+        <div class="transaction-category total"><span class="category">total</span></div>
+        <div class="transaction-price total">Rp. 88.000</div>
+      </div> -->
+    </div>
+
+  </div>
+  <!-- overlays -->
+
+  <div id="overlay">
+    <img class="save-btn" src="img/save_money2.png" onclick="nabungTetap()">
+    <div class="goal-text save-goaltext">daily coin</div>
+    <div class="goal-text text-addgoal" id="showNabungConstant">Rp.30.000,00</div>
+    <div class="goal-text save-goaltext">optional coin</div>
+    <label class="item item-input">
+      <input name="date goal" type="number" placeholder="" id="inputNabung">
+    </label>
+    <img class="save-btn optional-btn" src="img/save_money.png" onclick="nabungCustom()">
+  </div>
+  <div id="mask" onclick="document.location='#';"></div> <!-- the only javascript -->
+</body>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/jquery.circliful.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('.nav').slideAndSwipe();
+    });
+</script>
+<script>
+        function toggle_sidebar()
+        {
+          var sidebar = document.getElementById("sidebar");
+          
+          console.log(sidebar.style.left);
+          
+          if(sidebar.style.left == "-200px")
+          {
+              sidebar.style.left = "0px";
+          }
+          else
+          {
+              sidebar.style.left = "-200px";
+          }
+        }
+    </script>
+	<script type="text/javascript" src="cordova.js"></script>
+</html>

@@ -19,11 +19,11 @@ function changeSubmitButton() {
 }
 
 function refresh() {
-  if(localStorage.getItem('USERNAME') != null){
-    alert(localStorage.getItem('USERNAME') + ' was logged in');
-    //window.location.href = "select_kapal.html";
-    alert("go to home page");
+  if(localStorage.getItem('USERNAME') == null){
+    alert('You must logged in first');
+    window.location.href = "login.html";
   }
+  $('#username_title').html(localStorage.getItem('USERNAME'));
   $('#inputWallet').on('input',function () {
     changeSubmitButton();
   });
@@ -45,12 +45,18 @@ function Submit() {
       'AKUN_ID'     : localStorage.getItem('AKUN_ID'),
       'REKENING'  : String(Number($('#inputWallet').val()) + Number($('#inputCredit').val()))
     };
-    SpinnerPlugin.activityStart("Add Budget...");
+    SpinnerPlugin.activityStart("Update Budget...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       alert(data.message);
       if(data.status != '300'){
         // window.location.href = "budget.html";
-        alert("go to home page");
+        if(localStorage.getItem('fromSetting') != null && localStorage.getItem('fromSetting')){
+          localStorage.setItem('fromSetting',false);
+          localStorage.setItem('REKENING',String(Number($('#inputWallet').val()) + Number($('#inputCredit').val())));
+          window.location.href = "goals.html";
+        }
+        else
+          window.location.href = "addgoals.html";
       }
       SpinnerPlugin.activityStop();
     }, "json");

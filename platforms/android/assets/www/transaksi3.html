@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+    <script type="text/javascript">
+      function selectCategory(KATEGORI_TRANSAKSI_ID,JENIS,PIC,NAME_CATEGORY) {
+        // alert(NAME_CATEGORY);
+        if(KATEGORI_TRANSAKSI_ID == 7) localStorage.setItem('transactionCategory',$('#e_others').val());
+        else if(KATEGORI_TRANSAKSI_ID == 16) localStorage.setItem('transactionCategory',$('#i_others').val());
+        localStorage.setItem('KATEGORI_TRANSAKSI_ID',KATEGORI_TRANSAKSI_ID);
+        localStorage.setItem('JENIS',JENIS);
+        localStorage.setItem('transactionCategoryPic',PIC);
+        localStorage.setItem('transactionCategory',NAME_CATEGORY);
+        $('#ini1').attr('src','img/icon_done2.png');
+        $('#ini2').attr('src','img/icon_done2.png');
+        $('#ini3').attr('src','img/icon_done2.png');
+      }
+      function Submit() {
+        window.location.href = "transaksi2.html";
+      }
+    </script>
+    <title>Transaksi2 Page</title>
+</head>
+<body class="trans">
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()"> -->
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
+  
+	<div class="header-title text">transaction</div>
+  <div id="sidebar" style=""></div>
+    <div class="this-tabs">
+      <!-- Radio button and lable for #tab-content1 -->
+      <input type="radio" name="tabs" id="tab1" checked >
+      <label for="tab1">DEBT&LOAN</label>
+      <!-- Radio button and lable for #tab-content2 -->
+      <input type="radio" name="tabs" id="tab2">
+      <label for="tab2">EXPENSE</label>
+      <!-- Radio button and lable for #tab-content3 -->
+      <input type="radio" name="tabs" id="tab3">
+      <label for="tab3">INCOME</label>
+
+      <div id="tab-content1" class="tab-content">
+        <div class="category-trans">
+          <div class="row no-padding category-item" onclick="selectCategory('14','0','img/i_debt.png','Debt')">
+            <div class="trans-img"><img src="img/i_debt.png"></div>
+            <label class="item item-input trans">Debt</label>
+          </div>  
+          <div class="row no-padding category-item" onclick="selectCategory('15','0','img/e_loan.png','Loan')">
+            <div class="trans-img"><img src="img/e_loan.png"></div>
+            <label class="item item-input trans">Loan</label>
+          </div>   
+        </div>
+        <img class="save-btn add-transaction trans" src="img/icon_done.png" id="ini1" onclick="Submit()">
+      </div> <!-- #tab-content1 -->
+
+      <div id="tab-content2" class="tab-content">
+        <div class="category-trans">
+          <div class="row no-padding category-item" onclick="selectCategory('1','1','img/e_food.png','Food & Beverages')">
+            <div class="trans-img"><img src="img/e_food.png"></div>
+            <label class="item item-input trans">Food & Beverages</label>
+          </div>  
+          <div class="row no-padding category-item" onclick="selectCategory('2','1','img/w_bills.png','Biils & Utilities')">
+            <div class="trans-img"><img src="img/e_bills.png"></div>
+            <label class="item item-input trans">Bills & Utilities</label>
+          </div>   
+          <div class="row no-padding category-item" onclick="selectCategory('3','1','img/e_shop.png','Shop')">
+            <div class="trans-img"><img src="img/e_shop.png"></div>
+            <label class="item item-input trans">Shop</label>
+          </div>  
+          <div class="row no-padding category-item" onclick="selectCategory('4','1','img/e_friend.png','Friends')">
+            <div class="trans-img"><img src="img/e_friend.png"></div>
+            <label class="item item-input trans">Friends</label>
+          </div>   
+          <div class="row no-padding category-item" onclick="selectCategory('5','1','img/e_transportation.png','Transportation')">
+            <div class="trans-img"><img src="img/e_transportation.png"></div>
+            <label class="item item-input trans">Transportation</label>
+          </div>  
+          <div class="row no-padding category-item" onclick="selectCategory('6','1','img/e_entertaiment.png','Entertaiment')">
+            <div class="trans-img"><img src="img/e_entertaiment.png"></div>
+            <label class="item item-input trans">Entertaiment</label>
+          </div>   
+          <div class="row no-padding category-item" onclick="selectCategory('7','1','img/e_others.png','Others')">
+            <div class="trans-img"><img src="img/e_others.png"></div>
+            <label class="item item-input trans noitalic">
+              <input name="category" type="text" placeholder="Others" id="e_others">
+            </label>
+          </div>   
+        </div>
+        <img class="save-btn add-transaction trans" src="img/icon_done.png" id="ini2" onclick="Submit()">
+      </div> <!-- #tab-content2 -->
+
+      <div id="tab-content3" class="tab-content">
+        <div class="category-trans">  
+          <div class="row no-padding category-item" onclick="selectCategory('10','2','img/i_parent.png','Parents')">
+            <div class="trans-img"><img src="img/i_parent.png"></div>
+            <label class="item item-input trans">Parents</label>
+          </div>  
+          <div class="row no-padding category-item" onclick="selectCategory('11','2','img/i_project.png','Project')">
+            <div class="trans-img"><img src="img/i_project.png"></div>
+            <label class="item item-input trans">Project</label>
+          </div>   
+          <div class="row no-padding category-item" onclick="selectCategory('12','2','img/i_pay.png','Pay')">
+            <div class="trans-img"><img src="img/i_pay.png"></div>
+            <label class="item item-input trans">Pay</label>
+          </div>  
+          <div class="row no-padding category-item" onclick="selectCategory('13','2','img/i_competition.png','Competition')">
+            <div class="trans-img"><img src="img/i_competition.png"></div>
+            <label class="item item-input trans">Competition</label>
+          </div>   
+          <div class="row no-padding category-item" onclick="selectCategory('16','2','img/i_others.png','Others')">
+            <div class="trans-img"><img src="img/e_others.png"></div>
+            <label class="item item-input trans noitalic">
+              <input name="category" type="text" placeholder="Others" id="i_others">
+            </label>
+          </div>   
+        </div>
+        <img class="save-btn add-transaction trans" src="img/icon_done.png" id="ini3" onclick="Submit()">
+      </div> <!-- #tab-content2 -->
+    </div>
+    
+    
+</body>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.nav').slideAndSwipe();
+      });
+      function toggle_sidebar()
+      {
+          var sidebar = document.getElementById("sidebar");
+          
+          console.log(sidebar.style.left);
+          
+          if(sidebar.style.left == "-200px")
+          {
+              sidebar.style.left = "0px";
+          }
+          else
+          {
+              sidebar.style.left = "-200px";
+          }
+      }
+    </script>
+</html>
