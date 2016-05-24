@@ -14,12 +14,9 @@
     <script src="js/jquery.touchSwipe.min.js"></script>
     <script src="js/jquery.slideandswipe.min.js"></script>
 
-    <title>Reminder</title>
+    <title>Chart Page</title>
 </head>
-<body >
-  <!-- sidemenu -->
-  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
-  <div id="sidebar" style=""></div> -->
+<body class="trans">
   <script type="text/javascript">
     function menuToHome() {
       window.location.href = "goals.html";
@@ -52,6 +49,9 @@
       );
     }
   </script>
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div> -->
   <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
   <nav class="nav">
     <div class="content-sidemenu">
@@ -64,35 +64,14 @@
   </nav>
         <div class="ssm-overlay ssm-toggle-nav"></div>
 
-	<div class="header-title text">reminder</div> 
-
+	<div class="header-title text">chart</div>
+    <div class="detailtrans">
+      <img src="img/chart2.jpg" class="chartgraph">
     
-
-    <form class="login-form" method="post">
-      <div class="list list-inset reminder">
-        <div class="row">
-          <div class="text-input reminder">daily limit expense</div>
-          <input type="checkbox" id="buttonThree" class="switch" />
-          <label for="buttonThree" class="switch"> <!-- class="attention" -->
-            <i></i>
-          </label>
-        </div>
-        <label class="item item-input ">
-          Rp. <input name="wallet" type="number" placeholder=" 000.000" class="custom-input" >
-        </label>
-
-        <div class="row">
-          <div class="text-input reminder">save money</div>
-          <input type="checkbox" id="buttonFour" class="switch" />
-          <label for="buttonFour" class="switch"> <!-- class="attention" -->
-            <i></i>
-          </label>
-        </div>
-        <label class="item item-input ">
-          <input name="credit" type="time" placeholder=" 000.000" class="custom-input" >
-        </label>
-      </div>
-    </form>
+    
+    
+  </div>
+  <a href="goals.html"><img class="save-btn add-transaction home" src="img/home.png"></a>
     
 </body>
 	<script type="text/javascript" src="cordova.js"></script>

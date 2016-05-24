@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- sweetalert -->
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+
+    <title>Detail transaksi Page</title>
+</head>
+<body class="trans">
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div> -->
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu">home</div>
+      <div class="item-sidemenu">reminder</div>
+      <div class="item-sidemenu">budget</div>
+      <div class="item-sidemenu">account</div>
+    </div>
+  </nav>
+        <div class="ssm-overlay ssm-toggle-nav"></div>
+
+	<div class="header-title text">alert</div>
+  <button class="sa-simple">simple sweetalert</button>
+  <button class="sa-title">with title</button>
+  <button class="sa-success">success</button>
+  <button class="sa-error">error</button>
+  <button class="sa-warning1">warning v1</button>
+  <button class="sa-warning2">warning v2</button>
+  <button class="sa-html">html syntax</button>
+  <button class="sa-auto">auto close</button>
+  <button class="sa-ajax">ajax</button>
+
+</body>
+	<script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.nav').slideAndSwipe();
+    });
+  </script>
+  <script>
+    // simple
+    document.querySelector('button.sa-simple').onclick = function(){
+      swal("Here's a message!");
+    };
+    // with title
+    document.querySelector('button.sa-title').onclick = function(){
+      swal(
+        'The Internet?',
+        'That thing is still around?'
+      )
+    };
+    // success
+    document.querySelector('button.sa-success').onclick = function(){
+      swal(
+        "", 
+        "You clicked the button!", 
+        "success")
+    };
+    // error
+    document.querySelector('button.sa-error').onclick = function(){
+      swal(
+        "", 
+        "This is error message", 
+        "error")
+    };
+    // warning v1
+    document.querySelector('button.sa-warning1').onclick = function(){
+      swal({   
+        title: "Login success",   
+        text: "Welcome revoreva",   
+        type: "success",   
+        showCancelButton: false,   
+        confirmButtonColor: "#86CCE8",   
+        confirmButtonText: "OK!",
+        showLoaderOnConfirm: true,
+        closeOnConfirm: false 
+      },
+      function(){   
+        setTimeout(function(){     
+          window.location.href = "loading.html";  
+        }, 2000); 
+        
+        }
+      );
+    };
+    // warning v2
+    document.querySelector('button.sa-warning2').onclick = function(){
+      swal({   
+        title: "Are you sure?",   
+        text: "You will not be able to recover this imaginary file!",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#86CCE8",   
+        confirmButtonText: "Yes, delete it!",   
+        cancelButtonText: "No, cancel plx!",   
+        closeOnConfirm: false,   
+        closeOnCancel: false }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          swal(
+            "Deleted!", 
+            "Your imaginary file has been deleted.", 
+            "success");   
+        } 
+        else {     
+          swal(
+            "Cancelled", 
+            "Your imaginary file is safe :)",
+            "error");   
+        } 
+      });
+    };
+    // html
+    document.querySelector('button.sa-html').onclick = function(){
+      swal({   
+        title: "HTML <small>Title</small>!",   
+        text: "A custom <span style=\"color:#F8BB86\">html<span> message.",   
+        html: true 
+      });
+    };
+    // autoclose
+    document.querySelector('button.sa-auto').onclick = function(){
+      swal({   
+        title: "Auto close alert!",   
+        text: "I will close in 2 seconds.",  
+        timer: 2000,   
+        showConfirmButton: true 
+      });
+    };
+    // ajax
+    document.querySelector('button.sa-ajax').onclick = function(){
+      swal({   
+        title: "Ajax request example",  
+        text: "Submit to run ajax request",   
+        type: "info",   
+        showCancelButton: true,   
+        closeOnConfirm: false,   
+        showLoaderOnConfirm: true, }, 
+      function(){   
+        setTimeout(function(){     
+          swal("Ajax request finished!");   
+        }, 2000); 
+      });
+    };
+  </script>
+</html>

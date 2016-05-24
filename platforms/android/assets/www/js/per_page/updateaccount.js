@@ -20,7 +20,11 @@ function changeSubmitButton() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
   $('#inputEmail').on('input',function () {
@@ -47,7 +51,11 @@ function GetData() {
   // SpinnerPlugin.activityStart("Get Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     if(data.status == '300'){
-      alert(data.message);
+      // alert(data.message);
+      swal(
+        "", 
+        data.message, 
+        "error");
     } else {
       $('#inputEmail').val(data.data[0].EMAIL);
       $('#inputPassword').val(data.data[0].PASSWORD);
@@ -85,6 +93,10 @@ function Submit() {
     $.post(url, dataToBeSent, function(data, textStatus) {
       alert(data.message);
       if(data.status != '300'){
+        swal(
+          "", 
+          data.message, 
+          "success");
         localStorage.setItem('EMAIL', data.data[0].EMAIL);
         // localStorage.setItem('AKUN_ID', data.data[0].AKUN_ID);
         // localStorage.setItem('USERNAME', data.data[0].USERNAME);
@@ -92,12 +104,21 @@ function Submit() {
         // localStorage.setItem('FOTO', data.data[0].FOTO);
         $('.text-form').css('font-family','Neris-LightItalic');
         window.location.href = "goals.html";
+      } else {
+        swal(
+          "", 
+          data.message, 
+          "error");
       }
       SpinnerPlugin.activityStop();
     }, "json");
     
   }
   else {
-    alert('semua data harus terisi!');
+    // alert('semua data harus terisi!');
+    swal(
+          "", 
+          "semua data harus terisi!", 
+          "error");
   }
 }

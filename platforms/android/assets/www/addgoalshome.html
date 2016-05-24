@@ -4,7 +4,8 @@
   <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
@@ -151,6 +152,22 @@
       localStorage.setItem('fromSetting',true);
       window.location.href = "updateaccount.html";
     }
+    function logout() {
+      swal({   
+        title: "Are you sure?",   
+        text: "To Logout ",
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Yes!",   
+        closeOnConfirm: false 
+      },
+      function(){
+        localStorage.clear();
+        window.location.href = "index.html";
+        }
+      );
+    }
   </script>
   <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
   <nav class="nav">
@@ -159,6 +176,7 @@
       <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
       <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
       <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+      <div class="item-sidemenu" onclick="logout()">logout</div>
     </div>
   </nav>
   <div class="ssm-overlay ssm-toggle-nav"></div>

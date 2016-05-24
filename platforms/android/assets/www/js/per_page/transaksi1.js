@@ -20,7 +20,11 @@ function changeSubmitButton() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
   $('#inputNumber').on('input',function () {
@@ -37,6 +41,10 @@ function Submit() {
     window.location.href = "transaksi2.html";
   }
   else {
-    alert('semua data harus terisi!');
+    // alert('semua data harus terisi!');
+    swal(
+        "", 
+        "semua data harus terisi!", 
+        "error");
   }
 }
