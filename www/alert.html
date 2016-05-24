@@ -82,19 +82,20 @@
     // warning v1
     document.querySelector('button.sa-warning1').onclick = function(){
       swal({   
-        title: "Are you sure?",   
-        text: "You will not be able to recover this imaginary file!",   
-        type: "warning",   
-        showCancelButton: true,   
-        confirmButtonColor: "#DD6B55",   
-        confirmButtonText: "Yes, delete it!",   
+        title: "Login success",   
+        text: "Welcome revoreva",   
+        type: "success",   
+        showCancelButton: false,   
+        confirmButtonColor: "#86CCE8",   
+        confirmButtonText: "OK!",
+        showLoaderOnConfirm: true,
         closeOnConfirm: false 
       },
       function(){   
-        swal(
-          "Deleted!", 
-          "Your imaginary file has been deleted.", 
-          "success"); 
+        setTimeout(function(){     
+          window.location.href = "loading.html";  
+        }, 2000); 
+        
         }
       );
     };
@@ -105,7 +106,7 @@
         text: "You will not be able to recover this imaginary file!",   
         type: "warning",   
         showCancelButton: true,   
-        confirmButtonColor: "#DD6B55",   
+        confirmButtonColor: "#86CCE8",   
         confirmButtonText: "Yes, delete it!",   
         cancelButtonText: "No, cancel plx!",   
         closeOnConfirm: false,   
