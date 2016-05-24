@@ -64,6 +64,7 @@ function Submit() {
     if(fotoganti){
       var dataToBeSent = {
         'TYPE'      : 'update_account',
+        'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
         'EMAIL'     : $('#inputEmail').val(),
         'PASSWORD'  : $('#inputPassword').val(),
         'FOTO'      : $('#smallImage').attr('src'),
@@ -72,6 +73,7 @@ function Submit() {
     } else {
       var dataToBeSent = {
         'TYPE'      : 'update_account',
+        'AKUN_ID'   : localStorage.getItem('AKUN_ID'),
         'EMAIL'     : $('#inputEmail').val(),
         'PASSWORD'  : $('#inputPassword').val(),
         'UPDATE_FOTO': 0
