@@ -200,8 +200,9 @@
 
     width: 20px;
     height: 20px;
-/*
-    content: '•';*/
+
+    content: '';
+    /*'•'*/
     text-align: center;
 
     opacity: .25;
