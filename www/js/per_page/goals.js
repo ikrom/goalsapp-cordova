@@ -216,6 +216,7 @@ function GetData() {
         // alert(harga + ' ' + saldo);
         transaction_item = '<div class="row detail-transaction no-padding"><div class="transaction-img"><img src="' + foto + '"></div><div class="transaction-category"><span class="category">' + kategori + '</span><br>' + nama + '</div><div class="transaction-price">' + jumlah + '</div><div class="transaction-arrow"><img src="' + in_or_out + '"></div></div>';
         $(transaction_item).appendTo('#contentTransaction');
+        $('#showLoading').html('');
       } );
     }
     // SpinnerPlugin.activityStop();

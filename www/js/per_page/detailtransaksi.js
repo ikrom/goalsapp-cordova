@@ -127,6 +127,7 @@ function GetData() {
       async:false
     }).done(function () {
       // SpinnerPlugin.activityStop();
+      $('#showLoading').html('');
     });
   }
   $('#showTotalInflow').html(inflow);

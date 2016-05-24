@@ -44,7 +44,7 @@ function GetData() {
     'TYPE'      : 'get_account',
     'AKUN_ID'     : localStorage.getItem('AKUN_ID')
   };
-  SpinnerPlugin.activityStart("Get Data...");
+  // SpinnerPlugin.activityStart("Get Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
     if(data.status == '300'){
       alert(data.message);
@@ -54,7 +54,8 @@ function GetData() {
       $('#smallImage').attr('src',data.data[0].FOTO);
       $('.text-form').css('font-family','Neris-LightItalic');
     }
-    SpinnerPlugin.activityStop();
+    $('#showLoading').html('Update');
+    // SpinnerPlugin.activityStop();
   }, "json");
 }
 
