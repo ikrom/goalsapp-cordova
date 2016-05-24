@@ -41,16 +41,12 @@ button:hover
 .input-img .img-photo{
 	width: 70%;
   	display: table-cell;
-  	overflow: hidden;
 }
 .input-img .img-photo img{
 	width: 100%;
 	min-height: 200px;
-	/*max-height: 250px;*/
+	max-height: 250px;
 	border-radius: 50%;
-	border-color: #FAE903;
-	border-style: solid;
-	border-width: 5px;
 }
 .input-img .input-option{
 	width: 30%;
@@ -154,13 +150,13 @@ input[type="date"]:before {
 /*v2*/
 nav {
     height: 100%;
-    width: 290px;
+    width: 80%;
     background-color: #e0e0e0;
     left: 0;
     top: 0;
     z-index: 200;
     position: fixed;
-    transform: translate(-290px,0);
+    transform: translate(-1000px,0);
 }
 nav .item-sidemenu{
 	width: 100%;
@@ -289,7 +285,7 @@ input::-webkit-input-placeholder {
 ==================================*/
 .test-circle{
 	margin-top: -45px;
-	/*background: url('../img/add_goals.png') center no-repeat;*/
+	background: url('../img/add_goals.png') center no-repeat;
 	background-size: 50px;
 	background-position: 52% 54%;
 }
@@ -1248,6 +1244,102 @@ span.note{
 
 /*=====  End of Loading Style  ======*/
 
+/*======================================
+=            Reminder Style            =
+======================================*/
+.list-inset.remider{
+	background: #E9E9E8;
+}
+.item-input.reminder{
+	margin-bottom: 20px;
+}
+.reminder{
+	font-family: "Neris-Black";
+	margin-bottom: 20px;
+	background-color: #e9e9e8;
+	width: 100%;
+}
+
+/*=====  End of Reminder Style  ======*/
+
+/*====================================
+=            Slide button            =
+====================================*/
+label.switch {
+	width: 40px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	border-radius: 14px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+	background: #f2f2f2;
+	line-height: 20px;
+	font-style: normal;
+	color: #fff;
+	font-weight: bold;
+	-moz-transition: all 300ms ease-in;
+	-webkit-transition: all 300ms ease-in;
+	-o-transition: all 300ms ease-in;
+	transition: all 300ms ease-in;
+	cursor: pointer;
+	margin: 20px 0 20px;
+}
+label.switch i {
+	position: absolute;
+	top: 0px;
+	right:20px;
+	width: 22px;
+	height: 22px;
+	display: block;
+	border-radius: 36px;
+	background: #b3b3b3;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+label.switch i:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 16px;
+	height: 16px;
+	margin: -8px 0 0 -8px;
+	border-radius: 18px;
+	background: #404041;
+}
+label.switch:before {
+	margin-left: 30px;
+	text-transform: uppercase;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+input[type=checkbox]:checked ~ label.switch{
+	background: #fdd835;
+}
+
+input[type=checkbox]:checked ~ label.switch i {
+	right: -6px;
+}
+/* you can hide leter */
+input.switch {
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	margin-left: 10px;
+	opacity: .0;
+} 
+
+/*=====  End of Slide button  ======*/
+
 
 .trans-img img{
 	width: auto;
@@ -1256,3 +1348,4 @@ span.note{
 .reset-margin{
 	margin:0;
 }
+
