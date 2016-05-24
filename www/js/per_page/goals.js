@@ -22,6 +22,13 @@ function gotoDetail() {
   window.location.href="detailtransaksi.html";
 }
 
+function changeDolar() {
+  var activeSlide = $('#content_goals').find('.slick-active');
+  nama_barang = activeSlide.find('.nama_barang').val();
+  if(nama_barang == undefined) $('#dolarButton').attr('src','img/save_money.png');
+  else $('#dolarButton').attr('src','img/save_money2.png');
+}
+
 function itungJumlahNabung() {
   var activeSlide = $('#content_goals').find('.slick-active');
   target_id = activeSlide.find('.target_id').val();
@@ -125,7 +132,7 @@ function GetData() {
         } );
         // alert(harga + ' ' + saldo);
         var progress = 100*(1 - ((harga-saldo)/harga));
-        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div id="goals' + id + '" class="test-circle" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div id="goals' + id + '" class="test-circle" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat;background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
         // $(goal_item).appendTo('#content_goals');
         $('#content_goals').prepend(goal_item);
         // $('#goals' + id).css("background-image", "url(" + foto + ") center no-repeat");
