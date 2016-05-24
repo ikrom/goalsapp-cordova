@@ -132,7 +132,7 @@ function GetData() {
         } );
         // alert(harga + ' ' + saldo);
         var progress = 100*(1 - ((harga-saldo)/harga));
-        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div id="goals' + id + '" class="test-circle" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat;background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div width="' + 50 + 'px"  height="' + 50 + 'px" id="goals' + id + '" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat; -webkit-border-radius: 50%; border-radius: 50%; background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
         // $(goal_item).appendTo('#content_goals');
         $('#content_goals').prepend(goal_item);
         // $('#goals' + id).css("background-image", "url(" + foto + ") center no-repeat");

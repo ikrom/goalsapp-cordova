@@ -289,7 +289,7 @@ input::-webkit-input-placeholder {
 ==================================*/
 .test-circle{
 	margin-top: -45px;
-	background: url('../img/add_goals.png') center no-repeat;
+	/*background: url('../img/add_goals.png') center no-repeat;*/
 	background-size: 50px;
 	background-position: 52% 54%;
 }
