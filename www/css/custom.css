@@ -45,8 +45,8 @@ button:hover
 .input-img .img-photo img{
 	width: 100%;/*
 	min-height: 200px;
-	max-height: 250px;
-	border-radius: 50%;*/
+	max-height: 250px;*/
+	border-radius: 50%;
 }
 .input-img .input-option{
 	width: 30%;

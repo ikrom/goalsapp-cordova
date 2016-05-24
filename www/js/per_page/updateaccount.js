@@ -83,9 +83,8 @@ function Submit() {
     
     SpinnerPlugin.activityStart("Update...");
     $.post(url, dataToBeSent, function(data, textStatus) {
-      if(data.status == '300'){
-        alert(data.message);
-      } else {
+      alert(data.message);
+      if(data.status != '300'){
         localStorage.setItem('EMAIL', data.data[0].EMAIL);
         // localStorage.setItem('AKUN_ID', data.data[0].AKUN_ID);
         // localStorage.setItem('USERNAME', data.data[0].USERNAME);
