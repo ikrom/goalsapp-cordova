@@ -19,13 +19,29 @@
   <!-- sidemenu -->
   <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
   <div id="sidebar" style=""></div> -->
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
   <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
   <nav class="nav">
     <div class="content-sidemenu">
-      <div class="item-sidemenu">home</div>
-      <div class="item-sidemenu">reminder</div>
-      <div class="item-sidemenu">budget</div>
-      <div class="item-sidemenu">account</div>
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
     </div>
   </nav>
         <div class="ssm-overlay ssm-toggle-nav"></div>

@@ -12,6 +12,20 @@ var n = this,
    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
  };
 
+jQuery.fn.center = function(parent) {
+  if (parent) {
+      parent = this.parent();
+  } else {
+      parent = window;
+  }
+  this.css({
+      "position": "absolute",
+      "top": ((($(parent).height() - this.outerHeight()) / 2) + $(parent).scrollTop() + "px"),
+      "left": ((($(parent).width() - this.outerWidth()) / 4) + $(parent).scrollLeft() + "px")
+  });
+  return this;
+}
+
 /* initializer */
 $( document ).ready( function() {
   refresh();
@@ -132,7 +146,27 @@ function GetData() {
         } );
         // alert(harga + ' ' + saldo);
         var progress = 100*(1 - ((harga-saldo)/harga));
-        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div width="' + 50 + 'px"  height="' + 50 + 'px" id="goals' + id + '" style="margin-top: -45px;background: url(\'' + foto + '\') center no-repeat; -webkit-border-radius: 50%; border-radius: 50%; background-position: 52% 54%;"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        // goal_item = '<div class="img-photo">';
+        // goal_item +=    '<input type="hidden" class="target_id" value="' + id + '">';
+        // goal_item +=    '<input type="hidden" class="nama_barang" value="' + nama + '">';
+        // goal_item +=    '<input type="hidden" class="saldo" value="' + saldo + '">';
+        // goal_item +=    '<input type="hidden" class="due_date" value="' + due_date + '">';
+        // goal_item +=    '<input type="hidden" class="harga" value="' + harga + '">';
+        // goal_item +=    '<div class="joboCircle">';
+        // goal_item +=        '<div id="goals' + id + '" class="goals-div" style="margin-top: -45px;background:url(\'' + foto + '\');background-size:60% 60%;background-repeat:no-repeat;background-position:center;">';
+        // goal_item +=        '</div>';
+        // goal_item +=    '</div>';
+        // goal_item +=    '<div class="goal-text">' + Math.ceil(progress) + '% on progress</div>';
+        // goal_item +=    '<div class="goal-text goal-name">' + nama + '</div>';
+        // goal_item += '</div>';
+        var wid_window_bro = Number($(window).width());
+        // var heig_bro = Number($(window).height());
+        var margin_left_bro = Number(Number(wid_window_bro / 2) + 5);
+        // var margin_top_bro = Number(Number(wid_window_bro / 2) + 5);
+        console.log(wid_window_bro);
+        console.log(margin_left_bro);
+        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div id="goals' + id + '" class="goals-div"><img class="item-goal-image" src="' + foto + '" style="position:absolute;margin-left:' + margin_left_bro + 'px;margin-top:' + margin_left_bro + 'px;width:' + Number(wid_window_bro / 2) + 'px;height:' + Number(wid_window_bro / 2) + '"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        // console.log($(window).width()/8);
         // $(goal_item).appendTo('#content_goals');
         $('#content_goals').prepend(goal_item);
         // $('#goals' + id).css("background-image", "url(" + foto + ") center no-repeat");
@@ -227,5 +261,9 @@ function GetData() {
       } );
     }
     // SpinnerPlugin.activityStop();
+    // $('.joboCircle').css('width',$('.goals-div').width());
+    // $('.joboCircle').css('height',$('.goals-div').height());
+    //div.target:nth-child(1)
+    // $('goals-div svg-container.item-goal-image:nth-child(1)').center(true);
   }, "json");
 }
