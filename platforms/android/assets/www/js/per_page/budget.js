@@ -19,11 +19,11 @@ function changeSubmitButton() {
 }
 
 function refresh() {
-  if(localStorage.getItem('USERNAME') != null){
-    alert(localStorage.getItem('USERNAME') + ' was logged in');
-    //window.location.href = "select_kapal.html";
-    alert("go to home page");
+  if(localStorage.getItem('USERNAME') == null){
+    alert('You must logged in first');
+    window.location.href = "login.html";
   }
+  $('#username_title').html(localStorage.getItem('USERNAME'));
   $('#inputWallet').on('input',function () {
     changeSubmitButton();
   });
@@ -40,17 +40,24 @@ function refresh() {
 
 function Submit() {
   if ( checkInput() ) {
+    var rekening = Number($('#inputWallet').val()) + Number($('#inputCredit').val());
     var dataToBeSent = {
       'TYPE'      : 'budget',
       'AKUN_ID'     : localStorage.getItem('AKUN_ID'),
-      'REKENING'  : String(Number($('#inputWallet').val()) + Number($('#inputCredit').val()))
+      'REKENING'  : rekening
     };
-    SpinnerPlugin.activityStart("Add Budget...");
+    SpinnerPlugin.activityStart("Update Budget...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       alert(data.message);
       if(data.status != '300'){
         // window.location.href = "budget.html";
-        alert("go to home page");
+        if(localStorage.getItem('fromSetting') != null && localStorage.getItem('fromSetting')){
+          localStorage.setItem('fromSetting',false);
+          localStorage.setItem('REKENING',rekening);
+          window.location.href = "goals.html";
+        }
+        else
+          window.location.href = "addgoals.html";
       }
       SpinnerPlugin.activityStop();
     }, "json");

@@ -10,12 +10,41 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
     <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
     <script type="text/javascript" src="js/per_page/budget.js"></script>
     <title>Budget Page</title>
 </head>
 <body>
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
+
 	<div class="header-title text">budgets</div>
-  <div class="text text-username">revoreva</div>   
+  <div class="text text-username" id="username_title">revoreva</div>   
     <div class="login-form">
       <div class="list list-inset">
         <div class="text-input">wallet</div>
@@ -27,11 +56,16 @@
           Rp. <input id="inputCredit" name="credit" type="number" placeholder=" 000.000" class="custom-input" >
         </label>
       </div>
-      <button href="budget.html" class="button  submit-button ">
-        <img src="img/icon_done.png">
+      <button class="button  submit-button " onclick="Submit()">
+        <img id="ini" src="img/icon_done.png">
       </button>
     </div>
 </body>
 	<script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.nav').slideAndSwipe();
+    });
+  </script>
 </html>

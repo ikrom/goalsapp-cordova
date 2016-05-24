@@ -22,7 +22,7 @@ function refresh() {
   if(localStorage.getItem('USERNAME') != null){
     alert(localStorage.getItem('USERNAME') + ' was logged in');
     //window.location.href = "select_kapal.html";
-    alert("go to home page");
+    window.location.href = "goals.html";
   }
   $('#inputEmail').on('input',function () {
     changeSubmitButton();

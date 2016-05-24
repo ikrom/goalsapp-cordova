@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+    <script src="js/per_page/addgoalshomenext.js"></script>
+
+    <title>Goals Page</title>
+</head>
+<body>
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div> -->
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
+
+	<div class="header-title text">goals!</div>
+    <div class="text text-username username-goals" id="showUsername"></div>
+    <div class="input-img">
+      <div class="row-input">
+        <div class="img-photo">
+          <img id="showPhoto" src="img/photo.png" >  
+        </div>
+      </div>
+    </div>
+    <div class="goal-text progress">0% on progress</div>
+    <div class="goal-text goal-name progress" id="showNamaGoal"></div>
+    <div class="goal-text text-addgoal" id="showHargaGoal"></div>
+    <div class="goal-text text-addgoal borderbottom" id="showDueDate"></div>
+    <div class="goal-text progress">you have to save</div>
+    <div class="goal-text daily-saving text-addgoal" id="showNeededSave"></div>
+    <button class="button  submit-button home-button" onclick="Submit()" >
+      <img src="img/home.png">
+    </button>
+</body>
+    <script>
+        $(document).ready(function() {
+          $('.nav').slideAndSwipe();
+        });
+      </script>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        function toggle_sidebar()
+        {
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.left == "-200px")
+            {
+                sidebar.style.left = "0px";
+            }
+            else
+            {
+                sidebar.style.left = "-200px";
+            }
+        }
+    </script>
+</html>

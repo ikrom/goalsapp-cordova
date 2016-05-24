@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/per_page/updateaccount.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+      var pictureSource;   // picture source
+      var destinationType; // sets the format of returned value
+
+      // Wait for device API libraries to load
+      //
+      document.addEventListener("deviceready",onDeviceReady,false);
+
+      // device APIs are available
+      //
+      function onDeviceReady() {
+          pictureSource=navigator.camera.PictureSourceType;
+          destinationType=navigator.camera.DestinationType;
+      }
+
+      // Called when a photo is successfully retrieved
+      //
+      function onPhotoDataSuccess(imageData) {
+        // Uncomment to view the base64-encoded image data
+        // console.log(imageData);
+
+        // Get image handle
+        //
+        fotoganti = true;
+        var smallImage = document.getElementById('smallImage');
+
+        // Unhide image elements
+        //
+        smallImage.style.display = 'block';
+
+        // Show the captured photo
+        // The in-line CSS rules are used to resize the image
+        //
+        smallImage.src = "data:image/jpeg;base64," + imageData;
+      }
+
+      function encodeImageUri(imageUri)
+      {
+           var c=document.createElement('canvas');
+           var ctx=c.getContext("2d");
+           var img=new Image();
+           img.onload = function(){
+             c.width=this.width;
+             c.height=this.height;
+             ctx.drawImage(img, 0,0);
+           };
+           img.src=imageUri;
+           var dataURL = c.toDataURL("image/jpeg");
+           return dataURL;
+      }
+
+      // Called when a photo is successfully retrieved
+      //
+      function onPhotoURISuccess(imageURI) {
+        // Uncomment to view the image file URI
+        // console.log(imageURI);
+
+        // Get image handle
+        //
+        var smallImage = document.getElementById('smallImage');
+
+        // Unhide image elements
+        //
+        smallImage.style.display = 'block';
+
+        // Show the captured photo
+        // The in-line CSS rules are used to resize the image
+        //
+        smallImage.src = imageURI;
+        // smallImage.src = "data:image/jpeg;base64," + encodeImageUri(imageURI);
+      }
+
+      // A button will call this function
+      //
+      function capturePhoto() {
+        // alert('get from cam');
+        // Take picture using device camera and retrieve image as base64-encoded string
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+          destinationType: destinationType.DATA_URL });
+        changeSubmitButton();
+      }
+
+      // A button will call this function
+      //
+      function capturePhotoEdit() {
+        // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
+          quality: 20, 
+          allowEdit: true,
+          targetWidth: 500,
+          targetHeight: 500,
+          destinationType: destinationType.DATA_URL });
+          changeSubmitButton();
+      }
+
+      // A button will call this function
+      //
+      function getPhoto(source) {
+        // alert('get from file');
+        // Retrieve image file location from specified source
+        // navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
+        //   destinationType: destinationType.FILE_URI,
+        //   sourceType: source });
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
+          quality: 50, 
+          allowEdit: true,
+          targetWidth: 500,
+          targetHeight: 500,
+          destinationType: destinationType.DATA_URL,
+          sourceType: source });
+        changeSubmitButton();
+      }
+
+      // Called if something bad happens.
+      //
+      function onFail(message) {
+        fotoganti = false;
+        // alert('Failed because: ' + message);
+      }
+
+    </script>
+    <title>Register Page</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      window.location.href = "reminder.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
+
+  <div class="header-title text" id="showLoading">Loading...</div>
+    <!-- <img class="logo-img" ng-src="img/logo.png" width="200" height="200"> -->
+    <div class="input-img">
+      <div class="row-input">
+        <div class="img-photo">
+          <img id="smallImage" src="img/photo.png" alt="" >  
+        </div>
+        <div class="input-option">
+          <div class="input-library" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">
+            <img src="img/icon_pic.png" width="" height="28">
+          </div>
+          <div class="input-camera" onclick="capturePhoto();">
+            <img src="img/icon_camera.png" width="" height="28">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-form">
+      <div class="list list-inset">
+        <label class="item item-input ">
+          <input id="inputEmail" name="email" type="text" placeholder="email" class="custom-input" >
+        </label>
+        <label class="item item-input">
+          <input id="inputPassword" name="password" type="password" placeholder="password">
+        </label>
+      </div>
+      <div class="text-form">registered</div>
+      <!-- <a href="budget.html"> -->
+        <button onclick="Submit()" class="button  submit-button ">
+          <img id="ini" src="img/icon_done2.png">
+        </button>
+      <!-- </a> -->
+    </div>
+</body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.nav').slideAndSwipe();
+    });
+  </script>
+</html>
