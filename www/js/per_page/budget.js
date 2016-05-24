@@ -40,10 +40,11 @@ function refresh() {
 
 function Submit() {
   if ( checkInput() ) {
+    var rekening = Number($('#inputWallet').val()) + Number($('#inputCredit').val());
     var dataToBeSent = {
       'TYPE'      : 'budget',
       'AKUN_ID'     : localStorage.getItem('AKUN_ID'),
-      'REKENING'  : String(Number($('#inputWallet').val()) + Number($('#inputCredit').val()))
+      'REKENING'  : rekening
     };
     SpinnerPlugin.activityStart("Update Budget...");
     $.post(url, dataToBeSent, function(data, textStatus) {
@@ -52,7 +53,7 @@ function Submit() {
         // window.location.href = "budget.html";
         if(localStorage.getItem('fromSetting') != null && localStorage.getItem('fromSetting')){
           localStorage.setItem('fromSetting',false);
-          localStorage.setItem('REKENING',String(Number($('#inputWallet').val()) + Number($('#inputCredit').val())));
+          localStorage.setItem('REKENING',rekening);
           window.location.href = "goals.html";
         }
         else
