@@ -120,7 +120,7 @@ function GetData() {
   $.post(url, dataToBeSent, function(data, textStatus) {
     // alert(data.message);
     var goal_item = '';
-    if(data.status != '300' && data.data.length < 6){
+    if(data.status != '300' && data.data.length < 5){
       // alert(data.data.length);
       goal_item = '<div><a href="addgoalshome.html"><div id="goals999" class="test-circle" style="margin-top: -45px;background: url(\'img/add_goals.png\') center no-repeat;background-size: 50px;background-position: 52% 54%;"></div><div class="goal-text"></div></a><div class="goal-text goal-name">Add Goals</div></div>';
     
