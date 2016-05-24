@@ -30,7 +30,6 @@ function refresh() {
 }
 
 function GetData() {
-  // $('#loading').show();
   var inflow = 0;
   var outflow = 0;
   var day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -50,7 +49,6 @@ function GetData() {
       'TANGGAL'   : tanggal
     };
     // SpinnerPlugin.activityStart("Get List Transaksi...");
-    $('#loading').show();
     $.ajax({
       type: 'POST',
       url: url,
@@ -121,7 +119,7 @@ function GetData() {
           transaction_item_utama +=   '<div class="transaction-money">' + Math.abs(Number(total)).formatMoney(0,'.','.') + '</div>';
           transaction_item_utama +=   '<div class="transaction-arrow"><img src="' + (total < 0 ? 'img/expense.png': 'img/income.png') + '"></div>';
           transaction_item_utama += '</div>';
-          $('#contentTransaction').prepend(transaction_item_utama+transaction_item);
+          $('#contentTransaction').after('<div class="no-padding daily">' + transaction_item_utama + transaction_item + '</div>');
         }
       }
       ,
@@ -129,7 +127,6 @@ function GetData() {
       async:false
     }).done(function () {
       // SpinnerPlugin.activityStop();
-      $('#loading').hide();
     });
   }
   $('#showTotalInflow').html(inflow);

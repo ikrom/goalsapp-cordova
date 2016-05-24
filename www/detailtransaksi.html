@@ -10,33 +10,41 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
 
     <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slideandswipe.min.js"></script>
     <script type="text/javascript" src="js/per_page/detailtransaksi.js"></script>
     <title>Detail transaksi Page</title>
 </head>
 <body class="trans">
-  <div class="loading-screen" id="loading">
-    <div class="windows8">
-      <!-- <img src="img/loading.gif"> -->
-      <div class="wBall" id="wBall_1">
-        <div class="wInnerBall"></div>
-      </div>
-      <div class="wBall" id="wBall_2">
-        <div class="wInnerBall"></div>
-      </div>
-      <div class="wBall" id="wBall_3">
-        <div class="wInnerBall"></div>
-      </div>
-      <div class="wBall" id="wBall_4">
-        <div class="wInnerBall"></div>
-      </div>
-      <div class="wBall" id="wBall_5">
-        <div class="wInnerBall"></div>
-      </div>
-    </div>
-  </div>
   <!-- sidemenu -->
-  <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
-  <div id="sidebar" style=""></div>
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div> -->
+  <script type="text/javascript">
+    function menuToHome() {
+      window.location.href = "goals.html";
+    }
+    function menuToReminder() {
+      // window.location.href = "goals.html";
+    }
+    function menuToBudget() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "budget.html";
+    }
+    function menuToAccount() {
+      localStorage.setItem('fromSetting',true);
+      window.location.href = "updateaccount.html";
+    }
+  </script>
+  <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
+  <nav class="nav">
+    <div class="content-sidemenu">
+      <div class="item-sidemenu" onclick="menuToHome()">home</div>
+      <div class="item-sidemenu" onclick="menuToReminder()">reminder</div>
+      <div class="item-sidemenu" onclick="menuToBudget()">budget</div>
+      <div class="item-sidemenu" onclick="menuToAccount()">account</div>
+    </div>
+  </nav>
+  <div class="ssm-overlay ssm-toggle-nav"></div>
 
 	<div class="header-title text">transaction</div>
     <div class="detailtrans">
@@ -46,7 +54,7 @@
             <label for="ac-1" id="showMonth">-</label>
             <div class="ac-content">
               <!-- monthly -->
-              <div class="detail-transaction no-padding monthly">
+              <div class="detail-transaction no-padding monthly" id="contentTransaction">
                 <div class="row inside">
                   <div class="text-inflow">inflow</div>
                   <div class="monthly-inflow" id="showTotalInflow">0</div>
@@ -59,10 +67,6 @@
                   <div class="monthly-total" id="showTotal">0</div>
                   <div class="monthly-arrow"><img src="img/income.png" id="totalTransactionMonthIndicator"></div>
                 </div>
-              </div>
-              <!-- daily -->
-              <div class="no-padding daily" id="contentTransaction">
-                
               </div>
             </div>
         </div>
@@ -77,22 +81,27 @@
     
 </body>
 	<script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script>
-        function toggle_sidebar()
-        {
-            var sidebar = document.getElementById("sidebar");
-            
-            console.log(sidebar.style.left);
-            
-            if(sidebar.style.left == "-200px")
-            {
-                sidebar.style.left = "0px";
-            }
-            else
-            {
-                sidebar.style.left = "-200px";
-            }
-        }
-    </script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.nav').slideAndSwipe();
+    });
+  </script>
+  <script>
+      function toggle_sidebar()
+      {
+          var sidebar = document.getElementById("sidebar");
+          
+          console.log(sidebar.style.left);
+          
+          if(sidebar.style.left == "-200px")
+          {
+              sidebar.style.left = "0px";
+          }
+          else
+          {
+              sidebar.style.left = "-200px";
+          }
+      }
+  </script>
 </html>
