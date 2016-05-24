@@ -98,7 +98,11 @@
       //
       function capturePhotoEdit() {
         // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
+          quality: 20, 
+          allowEdit: true,
+          targetWidth: 500,
+          targetHeight: 500,
           destinationType: destinationType.DATA_URL });
       }
 
@@ -110,7 +114,11 @@
         // navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50,
         //   destinationType: destinationType.FILE_URI,
         //   sourceType: source });
-        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+        navigator.camera.getPicture(onPhotoDataSuccess, onFail, { 
+          quality: 50, 
+          allowEdit: true,
+          targetWidth: 500,
+          targetHeight: 500,
           destinationType: destinationType.DATA_URL,
           sourceType: source });
         changeSubmitButton();
@@ -137,7 +145,7 @@
           <div class="input-library" onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">
             <img src="img/icon_pic.png" width="" height="28">
           </div>
-          <div class="input-camera" onclick="capturePhoto();">
+          <div class="input-camera" onclick="capturePhotoEdit();">
             <img src="img/icon_camera.png" width="" height="28">
           </div>
         </div>
