@@ -339,14 +339,7 @@ img.save-btn{
 	top: 105px;
 	font-size: 12px;
 }
-img.save-btn.goal-complete{
-	top:47.5%;
-}
-span.complete-text{
-	text-transform: uppercase;
-	color: #49b442;
-	font-family: "Neris-Black";
-}
+
 /*=====  End of Goal Style  ======*/
 
 /*=========================================
@@ -1390,13 +1383,3 @@ img.item-goal-image {
 	/*border-style: solid;*/
 	/*border-width: 1px;*/
 }
-
-/*===================================
-=            Chart Style            =
-===================================*/
-
-img.chartgraph{
-	width: 100%;
-}
-
-/*=====  End of Chart Style  ======*/

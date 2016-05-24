@@ -24,7 +24,11 @@ function gotoHome() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
 }
@@ -162,5 +166,10 @@ function GetData() {
       $('#totalTransactionMonthIndicator').attr('src','img/income.png');
     }
     // $('#showLoading').html('');
+  }).fail(function () {
+    swal(
+      "", 
+      "Koneksi Gagal", 
+      "error");
   });
 }

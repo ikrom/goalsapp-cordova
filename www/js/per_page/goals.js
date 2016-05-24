@@ -41,6 +41,67 @@ function changeDolar() {
   nama_barang = activeSlide.find('.nama_barang').val();
   if(nama_barang == undefined) $('#dolarButton').attr('src','img/save_money.png');
   else $('#dolarButton').attr('src','img/save_money2.png');
+
+  progress = activeSlide.find('.progress_barang').val();
+  // alert(progress);
+  if(Number(progress) >= 100)
+    $('#buttonDelete').attr('src','img/icon_done2.png');
+  else
+    $('#buttonDelete').attr('src','img/icon_done.png');
+}
+
+function deleteTarget() {
+  var activeSlide = $('#content_goals').find('.slick-active');
+  nama_barang = activeSlide.find('.nama_barang').val();
+  progress = activeSlide.find('.progress_barang').val();
+  target_id = activeSlide.find('.target_id').val();
+  // alert(progress);
+  if(Number(progress) >= 100)
+    deleteTargetAPI(target_id,nama_barang);
+  else{
+    // alert('tidak bisa dihapus');
+    swal(
+        "", 
+        "Can't be deleted", 
+        "error");
+  }
+}
+
+function deleteTargetAPI(target_id, nama_barang){
+  var dataToBeSent = {
+    'TYPE'      : 'delete_target',
+    'TARGET_ID' : target_id
+  };
+  // alert('delete ' + target_id);
+  swal({   
+    title: "Are you sure?",   
+    text: "To Delete Goal " + nama_barang,   
+    type: "warning",   
+    showCancelButton: true,   
+    confirmButtonColor: "#DD6B55",   
+    confirmButtonText: "Yes, delete it!",   
+    closeOnConfirm: false 
+  },
+  function(){
+    // SpinnerPlugin.activityStart("Delete Data...");
+    $.post(url, dataToBeSent, function(data, textStatus) {
+      // alert(data.message);
+      if(data.status != '300'){
+        // SpinnerPlugin.activityStop();
+        swal(
+          "Deleted!", 
+          nama_barang + " has been deleted.", 
+          "success"); 
+        window.location.href = "goals.html";
+      } else {
+        swal(
+          "", 
+          data.message, 
+          "error");
+      }
+    }, "json");
+    }
+  );
 }
 
 function itungJumlahNabung() {
@@ -87,30 +148,55 @@ function submitNabung(jumlah_nabung,target_id,nama_barang,saldo_awal) {
 
   // SpinnerPlugin.activityStart("Submit Data...");
   $.post(url, dataToBeSent, function(data, textStatus) {
-    alert(data.message);
+    // alert(data.message);
     if(data.status != '300'){
-      SpinnerPlugin.activityStop();
+      // SpinnerPlugin.activityStop();
+      swal(
+        "", 
+        data.message, 
+        "success");
       localStorage.setItem('REKENING',data.rekening);
       window.location.href = "goals.html";
     } else {
       // SpinnerPlugin.activityStop();
+      swal(
+        "", 
+        data.message, 
+        "error");
     }
   }, "json");
 }
 
 function checkInput() {
-  return ($('#inputNama').val() != "" && $('#inputHarga').val() != "" && $('#inputDate').val() != "" && $('#smallImage').attr('src') != "img/thing.png");
+  return ($('#inputNabung').val() != "");
 }
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
 }
 
-function GetData() {
+function changeSubmitButton() {
+  if(checkInput()){
+    $('#buttonNabungCustom').attr('src','img/save_money2.png');
+  } else {
+    $('#buttonNabungCustom').attr('src','img/save_money.png');
+  }
+}
 
+function GetData() {
+  $('#inputNabung').on('input',function () {
+    changeSubmitButton();
+  });
+  $('#inputNabung').on('keyup',function () {
+    changeSubmitButton();
+  });
   $('#showRekening').html('Rp. '+Number(localStorage.getItem('REKENING')).formatMoney(2, ',', '.'));
   var dataToBeSent = {
     'TYPE'      : 'list_target',
@@ -135,7 +221,7 @@ function GetData() {
         var saldo;
         var foto;
         var due_date;
-        console.log(this);
+        // console.log(this);
         $.each( this, function( j, item2 ) {
           if(j == 'TARGET_ID') id = item2;
           else if(j == 'NAMA') nama = item2;
@@ -163,9 +249,9 @@ function GetData() {
         // var heig_bro = Number($(window).height());
         var margin_left_bro = Number(Number(wid_window_bro / 2) + 7);
         // var margin_top_bro = Number(Number(wid_window_bro / 2) + 5);
-        console.log(wid_window_bro);
-        console.log(margin_left_bro);
-        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><div id="goals' + id + '" class="goals-div" style="margin-top:-45px;"><img class="item-goal-image" src="' + foto + '" style="position:absolute;margin-left:' + margin_left_bro + 'px;margin-top:' + margin_left_bro + 'px;width:' + Number(wid_window_bro / 2) + 'px;height:' + Number(wid_window_bro / 2) + '"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress</div><div class="goal-text goal-name">' + nama + '</div></div>';
+        // console.log(wid_window_bro);
+        // console.log(margin_left_bro);
+        goal_item = '<div><input type="hidden" class="target_id" value="' + id + '"><input type="hidden" class="nama_barang" value="' + nama + '"><input type="hidden" class="saldo" value="' + saldo + '"><input type="hidden" class="due_date" value="' + due_date + '"><input type="hidden" class="harga" value="' + harga + '"><input type="hidden" class="progress_barang" value="' + progress + '"><div id="goals' + id + '" class="goals-div" style="margin-top:-45px;"><img class="item-goal-image" src="' + foto + '" style="position:absolute;margin-left:' + margin_left_bro + 'px;margin-top:' + margin_left_bro + 'px;width:' + Number(wid_window_bro / 2) + 'px;height:' + Number(wid_window_bro / 2) + '"></div><div class="goal-text">' + Math.ceil(progress) + '% on progress' + (progress > 100 ? ' - <span class="complete-text">complete</span>' : '') + '</div><div class="goal-text goal-name">' + nama + '</div></div>';
         // console.log($(window).width()/8);
         // $(goal_item).appendTo('#content_goals');
         $('#content_goals').prepend(goal_item);
@@ -182,7 +268,7 @@ function GetData() {
         var saldo;
         var foto;
         var due_date;
-        console.log(this);
+        // console.log(this);
         $.each( this, function( j, item2 ) {
           if(j == 'TARGET_ID') id = item2;
           else if(j == 'HARGA') harga = Number(item2);
@@ -241,7 +327,7 @@ function GetData() {
         var kategori;
         var kategori_transaksi_id;
         var in_or_out;
-        console.log(this);
+        // console.log(this);
         $.each( this, function( j, item2 ) {
           if(j == 'ID') id = item2;
           else if(j == 'JENIS') jenis = item2;

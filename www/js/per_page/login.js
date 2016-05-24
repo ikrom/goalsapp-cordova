@@ -8,7 +8,8 @@ $( document ).ready( function() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') != null){
-    alert(localStorage.getItem('USERNAME') + ' was logged in');
+    // alert(localStorage.getItem('USERNAME') + ' was logged in');
+    swal(localStorage.getItem('USERNAME') + ' was logged in');
     //window.location.href = "select_kapal.html";
     window.location.href = "goals.html";
   }
@@ -52,9 +53,14 @@ function Submit() {
     SpinnerPlugin.activityStart("Login...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       if(data.status == '300'){
-        alert(data.message);
+        // alert(data.message);
+        swal(
+          "", 
+          data.message, 
+          "error");
       } else {
-        alert('Welcome ' + data.data[0].USERNAME);
+        // alert('Welcome ' + data.data[0].USERNAME);
+        swal('Welcome ' + data.data[0].USERNAME);
         localStorage.setItem('EMAIL', data.data[0].EMAIL);
         localStorage.setItem('AKUN_ID', data.data[0].AKUN_ID);
         localStorage.setItem('USERNAME', data.data[0].USERNAME);
@@ -66,6 +72,10 @@ function Submit() {
     }, "json");
   }
   else {
-    alert('email dan password harus terisi!');
+    // alert('email dan password harus terisi!');
+    swal(
+        "", 
+        "email dan password harus terisi!", 
+        "error");
   }
 }

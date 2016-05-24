@@ -18,7 +18,7 @@ $( document ).ready( function() {
 } );
 
 function checkInput() {
-  return ($('#inputNumber').val() != "");
+  return (localStorage.getItem('transactionNumber') != undefined && localStorage.getItem('transactionNumber') != "" && $('#inputNote').val() != "" && $('#inputDate').val() != "" && $('#showCategoryTitle').val() != '');
 }
 
 function changeSubmitButton() {
@@ -71,14 +71,37 @@ function select_transaction() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
   GetData();
-  $('#inputNumber').on('input',function () {
+
+  var now = new Date();
+  var day = ("0" + now.getDate()).slice(-2);
+  var month = ("0" + (now.getMonth() + 1)).slice(-2);
+  var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+  $('#inputDate').val(today);
+
+  $('#inputNote').on('input',function () {
     changeSubmitButton();
   });
-  $('#inputNumber').on('keyup',function () {
+  $('#inputDate').on('input',function () {
+    changeSubmitButton();
+  });
+  $('#showCategoryTitle').on('input',function () {
+    changeSubmitButton();
+  });
+  $('#inputNote').on('keyup',function () {
+    changeSubmitButton();
+  });
+  $('#inputDate').on('keyup',function () {
+    changeSubmitButton();
+  });
+  $('#showCategoryTitle').on('keyup',function () {
     changeSubmitButton();
   });
 }
@@ -122,26 +145,39 @@ function Submit() {
       'REKENING'  : localStorage.getItem('REKENING'),
       'KATEGORI_TRANSAKSI_ID'      : localStorage.getItem('KATEGORI_TRANSAKSI_ID'),
       'JENIS'   : localStorage.getItem('JENIS'),
-      'JUMLAH' : $('#inputCash').val(),
+      'JUMLAH' : localStorage.getItem('transactionNumber'),//$('#inputCash').val(),
       'TANGGAL'  : $('#inputDate').val(),
       'NOTE' : $('#inputNote').val(),
       'WITH': $('#inputWith').val(),
       'LOCATION': $('#inputLocation').val(),
       'REMINDER': $('#inputReminder').val()
     };
-    console.log(dataToBeSent);
+    // console.log(dataToBeSent);
     SpinnerPlugin.activityStart("Add Transaction...");
     $.post(url, dataToBeSent, function(data, textStatus) {
-      alert(data.message);
+      // alert(data.message);
       if(data.status != '300'){
+        swal(
+          "", 
+          data.message, 
+          "success");
         localStorage.setItem('REKENING',data.rekening);
         removeStorage();
         window.location.href = "goals.html";
+      } else {
+        swal(
+          "", 
+          data.message, 
+          "error");
       }
       SpinnerPlugin.activityStop();
     }, "json");
   }
   else {
-    alert('semua data harus terisi!');
+    // alert('semua data harus terisi!');
+    swal(
+      "", 
+      "semua data harus terisi!", 
+      "error");
   }
 }

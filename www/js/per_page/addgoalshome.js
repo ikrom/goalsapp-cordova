@@ -20,7 +20,11 @@ function changeSubmitButton() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
   $('#showUsername').html(localStorage.getItem('USERNAME'));
@@ -57,19 +61,32 @@ function Submit() {
     };
     SpinnerPlugin.activityStart("Add Goal...");
     $.post(url, dataToBeSent, function(data, textStatus) {
-      alert(data.message);
+      // alert(data.message);
       if(data.status != '300'){
-        console.log(data);
+        swal(
+        "", 
+        data.message, 
+        "success");
+        // console.log(data);
         if(data.data[0].TARGET_ID){
           localStorage.setItem('TARGET_ID',data.data[0].TARGET_ID);
           window.location.href = "addgoalshomenext.html";
         }
+      } else {
+        swal(
+        "", 
+        data.message, 
+        "error");
       }
       SpinnerPlugin.activityStop();
     }, "json");
     // alert('jaaaa');
   }
   else {
-    alert('semua data harus terisi!');
+    swal(
+        "", 
+        "semua data harus terisi", 
+        "error");
+    // alert('semua data harus terisi!');
   }
 }

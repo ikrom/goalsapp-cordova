@@ -17,7 +17,11 @@ $( document ).ready( function() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
   GetData();
@@ -45,8 +49,17 @@ function GetData() {
       var date2 = new Date();
       var timeDiff = Math.abs(date2.getTime() - date1.getTime());
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+      // swal(
+      //   "", 
+      //   data.message, 
+      //   "success");
       // alert(diffDays);
       $('#showNeededSave').html('Rp. ' + Math.ceil(Number(data.data[0].HARGA)/Number(diffDays)).formatMoney(2,',','.'));
+    } else {
+      swal(
+        "", 
+        data.message, 
+        "error");
     }
     // SpinnerPlugin.activityStop();
   }, "json");

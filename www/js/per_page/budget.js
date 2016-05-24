@@ -20,7 +20,11 @@ function changeSubmitButton() {
 
 function refresh() {
   if(localStorage.getItem('USERNAME') == null){
-    alert('You must logged in first');
+    // alert('You must logged in first');
+    swal(
+        "", 
+        "You must logged in first", 
+        "error");
     window.location.href = "login.html";
   }
   $('#username_title').html(localStorage.getItem('USERNAME'));
@@ -48,9 +52,13 @@ function Submit() {
     };
     SpinnerPlugin.activityStart("Update Budget...");
     $.post(url, dataToBeSent, function(data, textStatus) {
-      alert(data.message);
+      // alert(data.message);
       if(data.status != '300'){
         // window.location.href = "budget.html";
+        swal(
+          "", 
+          data.message, 
+          "success");
         if(localStorage.getItem('fromSetting') != null && localStorage.getItem('fromSetting')){
           localStorage.setItem('fromSetting',false);
           localStorage.setItem('REKENING',rekening);
@@ -58,11 +66,20 @@ function Submit() {
         }
         else
           window.location.href = "addgoals.html";
+      } else {
+        swal(
+          "", 
+          data.message, 
+          "error");
       }
       SpinnerPlugin.activityStop();
     }, "json");
   }
   else {
-    alert('semua data harus terisi!');
+    swal(
+        "", 
+        "semua data harus terisi", 
+        "error");
+    // alert('semua data harus terisi!');
   }
 }

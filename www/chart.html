@@ -13,10 +13,10 @@
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
     <script src="js/jquery.slideandswipe.min.js"></script>
-    <script type="text/javascript" src="js/per_page/budget.js"></script>
-    <title>Budget Page</title>
+
+    <title>Chart Page</title>
 </head>
-<body>
+<body class="trans">
   <script type="text/javascript">
     function menuToHome() {
       window.location.href = "goals.html";
@@ -49,6 +49,9 @@
       );
     }
   </script>
+  <!-- sidemenu -->
+  <!-- <img src="img/icon_menu.png" class="toggle side-menu" width="40px" height="40px" onclick="toggle_sidebar()">
+  <div id="sidebar" style=""></div> -->
   <img src="img/icon_menu.png" class="toggle side-menu ssm-toggle-nav" width="40px" height="40px" title="open nav">
   <nav class="nav">
     <div class="content-sidemenu">
@@ -59,25 +62,17 @@
       <div class="item-sidemenu" onclick="logout()">logout</div>
     </div>
   </nav>
-  <div class="ssm-overlay ssm-toggle-nav"></div>
+        <div class="ssm-overlay ssm-toggle-nav"></div>
 
-	<div class="header-title text">budgets</div>
-  <div class="text text-username" id="username_title">revoreva</div>   
-    <div class="login-form">
-      <div class="list list-inset">
-        <div class="text-input">wallet</div>
-        <label class="item item-input ">
-          Rp. <input id="inputWallet" name="wallet" type="number" placeholder=" 000.000" class="custom-input" >
-        </label>
-        <div class="text-input">credit</div>
-        <label class="item item-input ">
-          Rp. <input id="inputCredit" name="credit" type="number" placeholder=" 000.000" class="custom-input" >
-        </label>
-      </div>
-      <button class="button  submit-button " onclick="Submit()">
-        <img id="ini" src="img/icon_done.png">
-      </button>
-    </div>
+	<div class="header-title text">chart</div>
+    <div class="detailtrans">
+      <img src="img/chart2.jpg" class="chartgraph">
+    
+    
+    
+  </div>
+  <a href="goals.html"><img class="save-btn add-transaction home" src="img/home.png"></a>
+    
 </body>
 	<script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
@@ -86,4 +81,21 @@
       $('.nav').slideAndSwipe();
     });
   </script>
+    <script>
+        function toggle_sidebar()
+        {
+            var sidebar = document.getElementById("sidebar");
+            
+            console.log(sidebar.style.left);
+            
+            if(sidebar.style.left == "-200px")
+            {
+                sidebar.style.left = "0px";
+            }
+            else
+            {
+                sidebar.style.left = "-200px";
+            }
+        }
+    </script>
 </html>
