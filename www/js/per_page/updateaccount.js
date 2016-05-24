@@ -39,6 +39,7 @@ function refresh() {
 }
 
 function GetData() {
+  // alert('get data');
   var dataToBeSent = {
     'TYPE'      : 'get_account',
     'AKUN_ID'     : localStorage.getItem('AKUN_ID')
@@ -71,7 +72,7 @@ function Submit() {
       var dataToBeSent = {
         'TYPE'      : 'update_account',
         'EMAIL'     : $('#inputEmail').val(),
-        'PASSWORD'  : $('#inputPassword').val()
+        'PASSWORD'  : $('#inputPassword').val(),
         'UPDATE_FOTO': 0
       };
     }

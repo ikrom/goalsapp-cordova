@@ -45,13 +45,14 @@ function Submit() {
       'AKUN_ID'     : localStorage.getItem('AKUN_ID'),
       'REKENING'  : String(Number($('#inputWallet').val()) + Number($('#inputCredit').val()))
     };
-    SpinnerPlugin.activityStart("Add Budget...");
+    SpinnerPlugin.activityStart("Update Budget...");
     $.post(url, dataToBeSent, function(data, textStatus) {
       alert(data.message);
       if(data.status != '300'){
         // window.location.href = "budget.html";
         if(localStorage.getItem('fromSetting') != null && localStorage.getItem('fromSetting')){
           localStorage.setItem('fromSetting',false);
+          localStorage.setItem('REKENING',String(Number($('#inputWallet').val()) + Number($('#inputCredit').val())));
           window.location.href = "goals.html";
         }
         else
