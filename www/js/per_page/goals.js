@@ -161,7 +161,7 @@ function GetData() {
         // goal_item += '</div>';
         var wid_window_bro = Number($(window).width());
         // var heig_bro = Number($(window).height());
-        var margin_left_bro = Number(Number(wid_window_bro / 2) + 5);
+        var margin_left_bro = Number(Number(wid_window_bro / 2) + 7);
         // var margin_top_bro = Number(Number(wid_window_bro / 2) + 5);
         console.log(wid_window_bro);
         console.log(margin_left_bro);
